@@ -1,0 +1,61 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.user_title {
+  color: #786e6a;
+  padding: 10px;
+}
+
+.user_title2 {
+  color: #786e6a;
+}
+
+.user_title3 {
+  color: #786e6a;
+  margin-top: 40px;
+}
+
+.icon img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+  }
+
+  .search {
+    color: #786e6a;
+  }
+
+  .registration_heading {
+    position: relative;
+    display: inline-block;
+    padding: 0 55px;
+  }
+  
+  .registration_heading:before, .registration_heading:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    display: inline-block;
+    width: 45px;
+    height: 2px;
+    border-top: solid 1px #786e6a;
+    border-bottom: solid 1px #786e6a;
+  }
+  
+  .registration_heading:before {
+    left:0;
+  }
+  .registration_heading:after {
+    right: 0;
+  }
+  .registration_heading {
+    color: #786e6a;
+    font-size: 27px; 
+    font-family: "Hannotate SC";
+    margin-top: 50px;
+  }
+
+  .date {
+    color: #786e6a;
+  }

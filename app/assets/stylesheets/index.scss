@@ -1,0 +1,65 @@
+.beans-container {
+    width: 50%;
+    margin: 10px auto;
+  }
+  h3 {
+    width: 100px;
+    margin: 30px auto;
+    text-align: center;
+  }
+  .bean {
+    
+    margin-top: 10px;
+    padding-top: 20px;
+  }
+  // .main-box {
+  //   margin: 5px 0;
+  //   display: flex;
+  //   justify-content: space-between;
+  // }
+//   .time {
+//     display: flex;
+//     justify-content: flex-end;
+//   
+a {
+    color: #786e6a;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    color: #786e6a;
+  }
+
+  hr {
+    height: 8px;
+    background-image: repeating-linear-gradient(45deg, #c6bbb7 0, #ccc 1px, transparent 0, transparent 50%);
+    background-size: 8px 8px;
+    width: 100%;
+  }
+
+.heading {
+  position: relative;
+  display: inline-block;
+  padding: 0 55px;
+}
+
+.heading:before, .heading:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  display: inline-block;
+  width: 45px;
+  height: 2px;
+  border-top: solid 1px #786e6a;
+  border-bottom: solid 1px #786e6a;
+}
+
+.heading:before {
+  left:0;
+}
+.heading:after {
+  right: 0;
+}
+.heading {
+  color: #786e6a;
+}

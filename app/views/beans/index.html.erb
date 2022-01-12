@@ -1,0 +1,65 @@
+<body>
+
+      <center>
+<div class="beans-container">
+<div class="dekai_midashi">
+      投稿一覧<p>
+</div>
+
+<hr color="#ffffff">
+<% @beans.each do |t| %>
+<% if t.privacy=="1" %>
+      <% if user_signed_in? %>
+      <a href="/users/<%= t.user.id %>"><%= t.user.name %></a>
+      <% else %>
+      <a href="/users/sign_in"><%= t.user.name %></a>
+      <% end %>
+      <div class="bean">
+            <div class="right-container">
+
+                  <div class="details">
+                        <div class="title">
+                              名称
+                        </div>
+                        <%= t.brand %>
+                        <div class="title">
+                              購入場所
+                        </div>
+                        <%= t.shop %>
+                  </div>
+                  <div class="thumbnail">
+                        <%= image_tag t.image_url, size: "250x200" if t.image? %>
+                  </div>
+                  <br>
+                        <% if user_signed_in? %>
+                        <% if current_user.already_liked?(t) %>
+                        <%= link_to bean_like_path(id: t.id, bean_id: t.id), method: :delete do %>
+                        <i class="fas fa-heart"></i><%= t.likes.count %>
+                        <% end %>
+                        <% else %>
+                        <%= link_to bean_likes_path(id: t.id, bean_id: t.id), method: :post do %>
+                        <i class="far fa-heart"></i><%= t.likes.count %>
+                        <% end %>
+                        <% end %>
+                  <% else %>
+                        <i class="far fa-heart"></i><%= t.likes.count %>
+                  <% end %>
+                  <%= link_to "詳細へ", bean_path(t.id) %>
+                  <% if user_signed_in? && current_user.id == t.user_id %>  
+                        <%= link_to "編集する", edit_bean_path(t.id) %>
+                        <%= link_to "削除する", bean_path(t.id), method: :delete, data: { confirm: "削除しますか？" } %>
+                  <% end %>
+                  <p>
+                  <div class="title">
+                        <%= t.created_at.to_s(:datetime_jp) %>
+                  </div>
+                  <p>
+                  <hr color="#ffffff">
+            </div>
+      </div>
+<% end %> 
+<% end %>
+
+      <footer>    
+      </footer>
+</body>

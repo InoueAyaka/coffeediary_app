@@ -1,0 +1,31 @@
+<center>
+<div class="registration_heading">
+  パスワードを再設定
+</div>
+<div class="user_title">
+  パスワードを再設定するためのメールを送信します。<p>
+  登録しているメールをご入力ください。
+</div>
+
+<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+  <%= render "users/shared/error_messages", resource: resource %>
+
+<br>
+  <div class="field">
+  <div class="user_title2">
+    メールアドレス
+  </div>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "送信" %>
+  </div>
+<% end %>
+
+<br>
+<div class="user_title3">
+  <%= link_to "ログイン", new_session_path(resource_name) %><p>
+  <br>
+  <%= link_to "新規登録", new_registration_path(resource_name) %>
+</div>

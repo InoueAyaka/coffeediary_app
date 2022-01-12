@@ -1,0 +1,43 @@
+// .field {
+//     background-color: green;
+//     margin-bottom: 20px;
+// }
+
+// .box {
+//     background-color: blue;
+// }
+
+// .field1 {
+//     background-color: red;
+// }
+
+.dekai_midashi {
+    position: relative;
+    display: inline-block;
+    padding: 0 55px;
+  }
+  
+  .dekai_midashi:before, .dekai_midashi:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    display: inline-block;
+    width: 45px;
+    height: 2px;
+    border-top: solid 1px #786e6a;
+    border-bottom: solid 1px #786e6a;
+  }
+  
+  .dekai_midashi:before {
+    left:0;
+  }
+  .dekai_midashi:after {
+    right: 0;
+  }
+  .dekai_midashi {
+    color: #786e6a;
+    font-size: 26px; 
+    font-family: "Hannotate SC";
+  }
+
+  

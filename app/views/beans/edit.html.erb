@@ -1,0 +1,142 @@
+<center>
+<div class="dekai_midashi">
+  投稿を編集<p>
+</div>
+<%= form_for @bean do |f| %>
+    <div class="field">
+    <div class="title">
+      名称</font>
+    </div>
+      <%= f.text_field :brand, :size => 50 %><br>
+    </div>
+    
+    
+    <div class="field">
+    <div class="title">
+      購入場所</font>
+    </div>
+      <%= f.text_field :shop, :size => 50 %><br>
+    </div>
+  
+    <div class="field">
+    <div class="title">
+      生産地</font>
+    </div>
+      <%= f.text_field :area, :size => 50 %><br>
+    </div>
+  
+    <div class="field">
+    <div class="title">
+      フードペアリング
+    </div>
+      <%= f.text_field :food, :size => 50 %><br>
+    </div>
+  
+    <div class="field">
+    <div class="title">
+      淹れ方
+    </div>
+      <%= f.text_field :brew, :size => 50 %><br>
+    </div>
+  
+    <div class="text_field">
+    <div class="title">
+      メモ
+    </div>
+    <%= f.text_area :free %>
+    </div>
+  
+    <div class="field">
+      <div class="title">
+        <%= f.label :image %>
+      </div>
+      <%= f.file_field :image %>
+    </div>
+  
+    <div class="title">
+      テイスティング
+    </div>
+    <div class="post_form">
+        <%= f.radio_button :tasting, 10 ,id: 'star1'%>
+        <label for="star1"><span class="text">苦み</span></label>
+      
+        <%= f.radio_button :tasting, 9 ,id: 'star2'%>
+        <label for="star2"><span class="text"></span></label>
+      
+        <%= f.radio_button :tasting, 8 ,id: 'star3'%>
+        <label for="star3"><span class="text"></span></label>
+      
+        <%= f.radio_button :tasting, 7 ,id: 'star4'%>
+        <label for="star4"><span class="text"></span></label>
+      
+        <%= f.radio_button :tasting, 6 ,id: 'star5'%>
+        <label for="star5"><span class="text"></span></label>
+      
+        <%= f.radio_button :tasting, 5 ,id: 'star6'%>
+        <label for="star6"><span class="text"></span></label>
+      
+        <%= f.radio_button :tasting, 4 ,id: 'star7'%>
+        <label for="star7"><span class="text"></span></label>
+      
+        <%= f.radio_button :tasting, 3 ,id: 'star8'%>
+        <label for="star8"><span class="text"></span></label>
+      
+        <%= f.radio_button :tasting, 2 ,id: 'star9'%>
+        <label for="star9"><span class="text">酸味</span></label>
+    </div>
+  
+    <div class="title">
+      ボディ
+    </div>
+  <div class="post_form">
+      <%= f.radio_button :body,  5 ,id: 'star10'%>
+      <label for="star10"><span class="text">フル</span></label>
+    
+      <%= f.radio_button :body,  4 ,id: 'star11'%>
+      <label for="star11"><span class="text"></span></label>
+    
+      <%= f.radio_button :body, 3 ,id: 'star12'%>
+      <label for="star12"><span class="text">ミディアム</span></label>
+    
+      <%= f.radio_button :body , 2 ,id: 'star13'%>
+      <label for="star13"><span class="text"></span></label>
+    
+      <%= f.radio_button :body , 1 ,id: 'star14'%>
+      <label for="star14"><span class="text">ライト</span></label>
+  </div>
+  
+  <div class="title">
+    焙煎度
+  </div>
+  <div class="post_form">
+      <%= f.radio_button :roast,  8 ,id: 'star15'%>
+      <label for="star15"><span class="text">イタリアン</span></label>
+    
+      <%= f.radio_button :roast,  7 ,id: 'star16'%>
+      <label for="star16"><span class="text">フレンチ</span></label>
+    
+      <%= f.radio_button :roast, 6 ,id: 'star17'%>
+      <label for="star17"><span class="text">フルシティ</span></label>
+    
+      <%= f.radio_button :roast , 5 ,id: 'star18'%>
+      <label for="star18"><span class="text">シティ</span></label>
+    
+      <%= f.radio_button :roast , 4 ,id: 'star19'%>
+      <label for="star19"><span class="text">ハイ</span></label>
+    
+      <%= f.radio_button :roast , 3 ,id: 'star20'%>
+      <label for="star20"><span class="text">ミディアム</span></label>
+    
+      <%= f.radio_button :roast , 2 ,id: 'star21'%>
+      <label for="star21"><span class="text">シナモン</span></label>
+    
+      <%= f.radio_button :roast , 1 ,id: 'star22'%>
+      <label for="star22"><span class="text">ライト</span></label>
+  </div>
+  
+  <%= f.select :privacy, [["公開", 1], ["非公開", 2]] %>
+  <br>
+  <br>
+  <%= f.submit "編集する" %>
+  <br>
+  <% end %>

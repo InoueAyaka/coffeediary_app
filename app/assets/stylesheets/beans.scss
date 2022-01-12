@@ -1,0 +1,195 @@
+// Place all the styles related to the beans controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.lecture_form{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 300px;
+    margin: 30px;
+  }
+  .name_field{
+    width: 200px;
+    margin-bottom: 30px;
+  }
+
+/*　以下新規投稿ページの星用のCSS　*/
+
+.post_form{
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+.post_form input[type='radio']{
+  display: none;
+}
+.post_form label{
+  cursor: pointer;
+  background: url(hyggegray.png) no-repeat;
+  background-size: 27px;
+  position: left center;
+  padding: 28px 0 0px 28px;
+  color: rgb(255, 255, 255);
+  margin: 2px 8px
+}
+.post_form label .text{
+  position: absolute;
+  left: 20;
+  right: 30;
+  text-align: center;
+  font-size: 9px; /*星の上の説明書きの大きさを変更するときはここ*/
+  color: gray;
+}
+.post_form label:hover,
+.post_form label:hover ~ label,
+.post_form input[type='radio']:checked ~ label{
+  background: url(mink.png) no-repeat;
+  background-size: 27px;
+  position: left center;
+  padding: 28px 0 0px 28px;
+  color: rgb(255, 255, 255);
+  margin: 2px 8px
+}
+
+hr,
+.stripe {
+  width: 50%;
+  margin: 0 auto;
+}
+
+img {
+  width: 26px;
+  height: 26px;
+}
+
+.details {
+  display: flex;
+}
+
+font {
+  margin-left: 20px;
+}
+/*　以下一覧ページの星用のCSS　*/
+
+  .star-rating {
+    position: relative;
+    display: block;
+    width: 70%;
+    margin: 0 auto;
+    height: 1em;
+    font-size: 25px;
+    // background-color: rgba($color: orange, $alpha: 0.3);
+  }
+  
+  .star-rating img {
+    margin-right: 15px;
+    margin-left: 10px;
+  }
+  .star-rating-back {
+    display: inline-block;
+    background: url(hyggegray.png) no-repeat;
+    background-size: 27px;
+    // margin: 2px 8px
+  }
+
+  .bean_box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .box_item {
+    width: 100%;
+    margin-bottom: 20px;
+    // background-color: rgba($color: red, $alpha: 0.8);
+  }
+
+  .bean_item {
+    // background-color: rgba($color: red, $alpha: 0.3);
+    margin-bottom: 20px;
+    position: absolute;
+    text-align: left;
+    margin-left: 25%;
+  }
+  
+  .bean_item_front {
+    // background-color: rgba($color: green, $alpha: 0.3);
+    z-index: 1;
+  }
+
+@media(max-width:880px) {
+  .bean_item {
+    margin-left: 20%;
+  }
+  .box_item {
+    margin-bottom: 80px;
+  }
+
+}
+
+@media(max-width:1000px) {
+  .bean_item {
+    margin-left: 25%;
+  }
+}
+@media(max-width:600px) {
+  .bean_item {
+    margin-left: 5%;
+  }
+}
+// メディアクエリ
+
+
+
+.thumbnail img {
+  width: 100px;
+  height: 100px;
+}
+
+.title {
+  font-size: 16px; 
+  color: #786e6a;
+}
+
+.product_name {
+  color: #000000;
+}
+
+.body_midashi {
+  margin-left: 60px;
+}
+
+.dekai_midashi2 {
+  position: relative;
+  display: inline-block;
+  padding: 0 55px;
+}
+
+.dekai_midashi2:before, .dekai_midashi2:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  display: inline-block;
+  width: 45px;
+  height: 2px;
+  border-top: solid 1px #786e6a;
+  border-bottom: solid 1px #786e6a;
+}
+
+.dekai_midashi2:before {
+  left:0;
+}
+.dekai_midashi2:after {
+  right: 0;
+}
+.dekai_midashi2 {
+  color: #786e6a;
+  font-size: 20px; 
+  font-family: "Hannotate SC";
+}
+
+.body_midashi .bean_item {
+  margin-left: 30.5%;
+}
