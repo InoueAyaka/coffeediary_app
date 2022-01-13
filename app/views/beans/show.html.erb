@@ -208,11 +208,11 @@
                   </div>
                <% @comments.each do |c| %>
                   <div>
-                  <%= c.user.name unless c.user.blank? %>
+                  <span class="title"><%= c.user.name unless c.user.blank? %></span>
+                  <p>
                   <%= c.content %>
                   </div>
                   <% end %>
-                  
                   <% if user_signed_in? %>
       <%= form_with(model: [@bean, @comment], local: true) do |f| %>
             <%= f.text_area :content, class: "cmt_area" %><p>

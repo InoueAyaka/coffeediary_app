@@ -301,7 +301,7 @@
     .srch_btn {
       position: relative;
       display: inline-block;
-      font-weight: bold;
+      /* font-weight: bold; */
       text-decoration: none;
       color: #786e6a;
       background: #f7efe9;
@@ -314,3 +314,24 @@
       color: #f7efe9;
       border: 0px none;
     }
+
+    #load_animation {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      z-index: 100;
+      background-color: #c6bbb7;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      }
+
+      .loading_gif img {
+            width: 500px;
+            height: 500px;
+            display: none;
+            margin: 0 auto;
+        }

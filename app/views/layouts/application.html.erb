@@ -19,7 +19,12 @@
     <%= favicon_link_tag('favicon.ico') %>
   </head>
   <body>
-
+  <div id="load_animation">
+        <div class="loading_gif">
+          <img src="assets/load.gif" alt="Now Loading...">
+        </div>
+    </div>
+    
     <header>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -66,9 +71,9 @@
 
                 
                 
+                    <div class="komidashi">
+                    <% if current_page?(beans_path) or current_page?(root_path) %>
                     <div class="Separator5"><hr color="#c6bbb7"></div>
-                <div class="komidashi">
-                  <% if current_page?(beans_path) or current_page?(root_path) %>
                     <%= form_tag({controller:"beans",action:"index"}, method: :get) do %>
                       <div class="box">
                         <%= text_field_tag :search %>
