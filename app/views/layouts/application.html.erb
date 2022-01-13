@@ -9,6 +9,14 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/css/lightbox.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-1.12.4.min.js" type="text/javascript"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/js/lightbox.min.js" type="text/javascript"></script>
+    <meta name="viewport"
+    content="width=320,
+        height=480,
+        initial-scale=1.0,
+        minimum-scale=1.0,
+        maximum-scale=2.0,
+        user-scalable=yes" />
+    <%= favicon_link_tag('favicon.ico') %>
   </head>
   <body>
 
@@ -32,40 +40,40 @@
                     <% if user_signed_in? %>
 
                       <div class="komidashi">
-                        <li><%= link_to "マイページ", user_path(current_user.id) %></li>
+                        <li><%= link_to "My Page", user_path(current_user.id), class:"mypage" %></li>
                       </div>
 
                       <div class="komidashi">
-                        <li><%= link_to "新規投稿",new_bean_path %></li>
+                        <li><%= link_to "New Post",new_bean_path, class:"newpost" %></li>
                       </div>
                       
                       <div class="komidashi">
-                        <li><%= button_to "ログアウト",destroy_user_session_path, method: :delete %></li>
+                        <li><%= button_to "Log out",destroy_user_session_path, method: :delete, class:"button" %></li>
                       </div>
                     <% else %>
 
                       <div class="komidashi">
-                        <li><%= link_to "ログイン",user_session_path %></li>
+                        <li><%= link_to "Log in",user_session_path, class:"login" %></li>
                       </div>
 
                       <div class="komidashi">
-                        <li><%= link_to "新規登録",new_user_registration_path %></li>
+                        <li><%= link_to "Registration",new_user_registration_path, class:"rgst" %></li>
                       </div>
                     <% end %>
 
                     
                                 
 
-              
-                <div class="search_box">
+                
+                
+                <div class="komidashi">
                   <% if current_page?(beans_path) or current_page?(root_path) %>
-                    <div class="search">
-                      投稿を検索
-                    </div>
                     <%= form_tag({controller:"beans",action:"index"}, method: :get) do %>
                       <div class="box">
                         <%= text_field_tag :search %>
-                        <div class="search_btn"><%= submit_tag '検索'  %></div>
+                        <div class="search_btn">
+                          <span class="srch_btn"><%= submit_tag '検索' %></span>
+                        </div>
                       </div>
                     <% end %>
                   <% end %>
@@ -76,11 +84,13 @@
             </div>
           </div>
       </div>
+      
     </header>
-
+    <hr color="#ffffff">
     <main>
       <%= yield %>
     </main>
+    <hr color="#ffffff">
     <footer>
     <p>Copyright © Coffee Diary</p>
     </footer>

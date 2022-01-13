@@ -6,7 +6,7 @@
   <div class="field">
     <div class="title">
       <%= f.label :名称 %><br>
-      <%= f.text_field :brand, :size => 50 %>
+      <%= f.text_field :brand, :size => 30 %>
     </div>
   </div>
   <br>
@@ -14,7 +14,7 @@
   <div class="field">
     <div class="title">
       <%= f.label :購入場所 %><br>
-      <%= f.text_field :shop, :size => 50 %>
+      <%= f.text_field :shop, :size => 30 %>
     </div>
   </div>
   <br>
@@ -22,7 +22,7 @@
   <div class="field">
     <div class="title">
       <%= f.label :生産地 %><br>
-      <%= f.text_field :area, :size => 50 %>
+      <%= f.text_field :area, :size => 30 %>
     </div>
   </div>
   <br>
@@ -30,7 +30,7 @@
   <div class="field">
     <div class="title">
       <%= f.label :フードペアリング %><br>
-      <%= f.text_field :food, :size => 50 %>
+      <%= f.text_field :food, :size => 30 %>
     </div>
   </div>
   <br>
@@ -38,7 +38,7 @@
   <div class="field">
     <div class="title">
       <%= f.label :淹れ方 %><br>
-      <%= f.text_field :brew, :size => 50 %>
+      <%= f.text_field :brew, :size => 30 %>
     </div>
   </div>
   <br>
@@ -146,8 +146,11 @@
   <%= f.select :privacy, [["公開", 1], ["非公開", 2]] %>
 <br>
 <br>
-  <%= f.submit "投稿する" %>
+  <%= f.submit "投稿する", class:"submit_btn" %>
 
-  </center>
 <% end %>
-<%= link_to "投稿一覧に戻る", beans_path %>
+<br>
+<center>
+<div class="dekai_midashi">
+  <%= link_to "投稿一覧に戻る", beans_path %>
+</div>

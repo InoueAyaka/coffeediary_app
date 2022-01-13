@@ -7,7 +7,7 @@
     <div class="title">
       名称</font>
     </div>
-      <%= f.text_field :brand, :size => 50 %><br>
+      <%= f.text_field :brand, :size => 30 %><br>
     </div>
     
     
@@ -15,35 +15,35 @@
     <div class="title">
       購入場所</font>
     </div>
-      <%= f.text_field :shop, :size => 50 %><br>
+      <%= f.text_field :shop, :size => 30 %><br>
     </div>
   
     <div class="field">
     <div class="title">
       生産地</font>
     </div>
-      <%= f.text_field :area, :size => 50 %><br>
+      <%= f.text_field :area, :size => 30 %><br>
     </div>
   
     <div class="field">
     <div class="title">
       フードペアリング
     </div>
-      <%= f.text_field :food, :size => 50 %><br>
+      <%= f.text_field :food, :size => 30 %><br>
     </div>
   
     <div class="field">
     <div class="title">
       淹れ方
     </div>
-      <%= f.text_field :brew, :size => 50 %><br>
+      <%= f.text_field :brew, :size => 30 %><br>
     </div>
   
     <div class="text_field">
-    <div class="title">
-      メモ
-    </div>
-    <%= f.text_area :free %>
+      <div class="title">
+        メモ
+      </div>
+      <%= f.text_area :free, class: "memo_txt" %>
     </div>
   
     <div class="field">

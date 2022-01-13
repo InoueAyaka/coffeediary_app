@@ -1,3 +1,4 @@
+<center>
 <div class="heading">
   ユーザー情報変更
 </div>
@@ -6,29 +7,41 @@
   <%= render "users/shared/error_messages", resource: resource %>
 
   <div class="field">
-    <%= f.label :image %>
+  <div class="user_title2">
+    <%= f.label :icon %><p>
+  </div>
     <%= f.file_field :image %>
   </div>
 
   <div class="field">
-  <font color="#786e6a">ユーザー名</font><br />
+  <div class="user_title2">
+    ユーザー名
+  </div>
   <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
   </div>
 
   <div class="field">
-  <font color="#786e6a">Email</font><br />
+  <div class="user_title2">
+    Email
+  </div>
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
   <div class="field">
-  <font color="#786e6a">現在のパスワード</font> <br />
+  <div class="user_title2">
+    現在のパスワード
+  </div>
   <%= f.password_field :current_password, autocomplete: "current-password" %>
   </div>
 
   <!--アカウント編集時にプロフィールを入力できるようにフォームを追加-->
   <div class="field">
-    <font color="#786e6a">プロフィール</font><br />
-    <%= f.text_area :profile, autofocus: true %>
+    <div class="user_title2">
+      プロフィール
+    </div>
+    <div class="prf_txt">
+      <%= f.text_area :profile, autofocus: true %>
+    </div>
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -36,10 +49,11 @@
   <% end %>
 
   <div class="field">
-  <font color="#786e6a">新しいパスワード</font>
+    <div class="user_title2">
+      新しいパスワード<p>
+      最低6文字
     <br>
-    <font color="#786e6a">最低6文字</font>
-    <br>
+    </div>
     <%= f.password_field :password, autocomplete: "new-password" %>
     <% if @minimum_password_length %>
       <br />
@@ -50,18 +64,20 @@
   </div>
 
   <div class="field">
-  <font color="#786e6a">新しいパスワード(確認)</font><br />
+  <div class="user_title2">
+    新しいパスワード(確認)
+  </div>
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
   <div class="actions">
-    <%= f.submit "更新" %>
+    <%= f.submit "更新",class:"submit_btn" %>
   </div>
   <br>
 
 <% end %>
-
-<p>アカウントを削除しますか？<%= button_to "Delete", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
+<div class="user_title2">
+  <p>アカウントを削除<%= button_to "Delete", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class:"submit_btn" %></p>
+</div>
 <br>
 <%= link_to "Back", :back %>

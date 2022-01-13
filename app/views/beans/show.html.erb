@@ -193,12 +193,15 @@
                <% end %>
                
                <div class="title">
-                  <%= @bean.created_at.to_s(:datetime_jp) %>
+                     投稿日時: 
+                  <%= @bean.created_at.to_s(:datetime_jp) %><p>
+                     更新日時: 
                   <%= @bean.updated_at.to_s(:datetime_jp) %>
                </div>
-               <%= link_to "編集する", edit_bean_path(@bean.id) %>
-               <%= link_to "削除する", bean_path(@bean.id), method: :delete, data: { confirm: "削除しますか？" } %>
-               
+               <% if user_signed_in? && current_user.id == @bean.user_id %>  
+                  <%= link_to "編集する", edit_bean_path(@bean.id) %>
+                  <%= link_to "削除する", bean_path(@bean.id), method: :delete, data: { confirm: "削除しますか？" } %>
+               <% end %>
                <div class="comment-wrapper">
                   <div class="dekai_midashi2">
                      コメント一覧
@@ -214,12 +217,12 @@
       <%= form_with(model: [@bean, @comment], local: true) do |f| %>
             <%= f.text_area :content, class: "cmt_area" %><p>
          <%= button_tag type: "submit" do %>
-            <i class="far fa-comments"></i> コメントする
+            </i> コメントする
          <% end %>
       <% end %>
    <% end %>
 </div>
-
+<br>
 <div class="dekai_midashi2">
    <%= link_to "投稿一覧に戻る", beans_path %>
 </div>

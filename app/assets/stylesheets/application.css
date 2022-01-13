@@ -23,8 +23,6 @@
   body {
     min-height: 100vh;
     position: relative; 
-    font-family: "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", "メイリオ",
-      Meiryo, "ＭＳ Ｐゴシック", sans-serif;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -154,7 +152,7 @@
   /* メニューリスト */
   .hamburger-demo-menulist{
     margin-right: 3%;
-    padding-left: 5% !important; /* !important不要な場合もあり */
+    /* padding-left: 5% !important; */
     list-style: none;
     display: inline-flex;
     flex-direction: column;
@@ -162,26 +160,42 @@
     height: 100%;
     }
     .komidashi {
-      width:100%;
-      height: 10%;
+      width:40%;
+      /* height: 10%; */
       text-align:center
+    }
+    
+    .login, .rgst, .mypage, .newpost, .komidashi .button {
+      width: 150px;
     }
 
     .search_box {
+      text-align:center;
       width:100%;
       height: 30%;
     }
   
-  .hamburger-demo-menulist li a{
+  .hamburger-demo-menulist li a,  .komidashi .button{
     text-decoration: none;
     color: #f7efe9; /* メニューリストの文字色 */
     display: block;
     padding: .5em 0;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    padding: 0;
+    appearance: none;
+    font-weight: bold;
+    margin: 0 auto;
+    font-size: 30px;
+    font-family: 'Caveat', cursive;
+    padding: 30% 10%;
   }
   /* メニューエリア･アニメーション */
     /* 右から */
   #hamburger-demo1:checked ~ .hamburger-demo-menuwrap{
-    left: 30%;
+    left: 40%;
   }
     /* コンテンツカバー */
   #hamburger-demo1:checked ~ .hamburger-demo-cover{
@@ -207,8 +221,9 @@
   }
 
   #search {
-    width: 50%;
-    margin-left: 100px;
+    width: 150px;
+    /* border: 3px red; */
+    /* margin: 200px; */
   }
 
   .search_btn {
@@ -218,6 +233,8 @@
 
   .box {
     display: flex;
+    margin: 0 auto;
+    padding: 10% 10%;
   }
 
   .search_btn input[type="submit"] {
@@ -265,3 +282,4 @@
     height: 100px;
     width: 300px;
   }
+

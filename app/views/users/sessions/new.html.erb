@@ -21,17 +21,17 @@
 
   <% if devise_mapping.rememberable? -%>
     <div class="field">
-    <%= f.check_box :remember_me %>
-    パスワードを記憶する
+      <div class="chk_box_psw">
+        <%= f.check_box :remember_me %>
+        パスワードを記憶する
+      </div>
     </div>
   <% end -%>
-<br>
+<p>
 
   <div class="actions">
-    <%= f.submit "ログイン" %>
-    <br>
-    <br>
-    <br>
+    <%= f.submit "ログイン", class:"submit_btn" %>
+<p>
     <%= link_to "新規登録", new_registration_path(resource_name) %>
     <br />
     <%= link_to "パスワードをお忘れの方はこちら", new_password_path(resource_name) %>

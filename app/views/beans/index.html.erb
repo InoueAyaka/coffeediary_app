@@ -5,8 +5,7 @@
 <div class="dekai_midashi">
       投稿一覧<p>
 </div>
-
-<hr color="#ffffff">
+<p>
 <% @beans.each do |t| %>
 <% if t.privacy=="1" %>
       <% if user_signed_in? %>
@@ -16,8 +15,6 @@
       <% end %>
       <div class="bean">
             <div class="right-container">
-
-                  <div class="details">
                         <div class="title">
                               名称
                         </div>
@@ -26,11 +23,11 @@
                               購入場所
                         </div>
                         <%= t.shop %>
-                  </div>
                   <div class="thumbnail">
                         <%= image_tag t.image_url, size: "250x200" if t.image? %>
                   </div>
                   <br>
+                  <div class="title">
                         <% if user_signed_in? %>
                         <% if current_user.already_liked?(t) %>
                         <%= link_to bean_like_path(id: t.id, bean_id: t.id), method: :delete do %>
@@ -46,8 +43,8 @@
                   <% end %>
                   <%= link_to "詳細へ", bean_path(t.id) %>
                   <% if user_signed_in? && current_user.id == t.user_id %>  
-                        <%= link_to "編集する", edit_bean_path(t.id) %>
-                        <%= link_to "削除する", bean_path(t.id), method: :delete, data: { confirm: "削除しますか？" } %>
+                  <%= link_to "編集する", edit_bean_path(t.id) %>
+                  <%= link_to "削除する", bean_path(t.id), method: :delete, data: { confirm: "削除しますか？" } %>
                   <% end %>
                   <p>
                   <div class="title">

@@ -1,7 +1,8 @@
 <center>
-<hr color="#ffffff">
 <div class="heading">
-  マイページ
+  <div class="heading2">
+    Profile
+  </div>
 </div>
 <br>
 <div class="icon">
@@ -22,7 +23,7 @@
 <br>
 
 <div class="heading">
-  投稿一覧
+      投稿一覧
 </div>
 <% @user.beans.each do |t| %>
     <div class="bean">
@@ -63,18 +64,22 @@
     <div class="product_name">
       <%= t.brand %><p>
     </div>
-    <%= image_tag t.image_url, size: "250x200" if t.image? %><p>
+    <div class="thumbnail">
+      <%= image_tag t.image_url, size: "250x200" if t.image? %><p>
+    </div>
     <%= link_to "詳細へ", bean_path(t.id) %>
-    <%= link_to "編集する", edit_bean_path(t.id) %>
-    <%= link_to "削除する", bean_path(t.id), method: :delete, data: { confirm: "削除しますか？" }%>
+    <% if user_signed_in? && current_user.id == t.user_id %> 
+      <%= link_to "編集する", edit_bean_path(t.id) %>
+      <%= link_to "削除する", bean_path(t.id), method: :delete, data: { confirm: "削除しますか？" }%>
+    <% end %>
   </div>
   <div class="date">
+    <i class="far fa-heart"></i><%= t.likes.count %>
     <%= t.created_at.to_s(:datetime_jp) %>
   </div>
-
-
-
-  <i class="far fa-heart"></i><%= t.likes.count %>
+  
+  
+  
 
 
   </div>
@@ -83,4 +88,3 @@
 <div class="heading">
   <%= link_to "投稿一覧に戻る", beans_path %>
 </div>
-<hr color="#ffffff">
