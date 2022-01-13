@@ -39,3 +39,4 @@ $(function(){
         $load.delay(1500).fadeOut("slow");
     }
 }); 
+
