@@ -10,37 +10,37 @@
          名称
       </div>
       <p><%= @bean.brand %></p>
-      <hr color="#ffffff">
+      <div class="Separator"><hr color="#ffffff"></div>
 
       <div class="title">
          購入場所
       </div>
       <p><%= @bean.shop %></p>
-      <hr color="#ffffff">
+      <div class="Separator"><hr color="#ffffff"></div>
 
       <div class="title">
          生産地
       </div>
       <p><%= @bean.area %></p>
-      <hr color="#ffffff">
+      <div class="Separator"><hr color="#ffffff"></div>
 
       <div class="title">
          フードペアリング
       </div>
       <p><%= @bean.food %></p>
-      <hr color="#ffffff">
+      <div class="Separator"><hr color="#ffffff"></div>
 
       <div class="title">
          淹れ方
       </div>
       <p><%= @bean.brew %></p>
-      <hr color="#ffffff">
+      <div class="Separator"><hr color="#ffffff"></div>
 
       <div class="title">
          メモ
       </div>
       <p><%= @bean.free %></p>
-      <hr color="#ffffff">
+      <div class="Separator"><hr color="#ffffff"></div>
 
       <div class="thumbnail">
          <%= link_to @bean.image.url, 'data-lightbox': @bean.image do %>
@@ -192,7 +192,7 @@
                <i class="far fa-heart"></i><%= @bean.likes.count %>
                <% end %>
                
-               <div class="title">
+               <div class="date">
                      投稿日時: 
                   <%= @bean.created_at.to_s(:datetime_jp) %><p>
                      更新日時: 
@@ -216,7 +216,7 @@
                   <% if user_signed_in? %>
       <%= form_with(model: [@bean, @comment], local: true) do |f| %>
             <%= f.text_area :content, class: "cmt_area" %><p>
-         <%= button_tag type: "submit" do %>
+         <%= button_tag class:"cmt_btn", type: "submit" do %>
             </i> コメントする
          <% end %>
       <% end %>

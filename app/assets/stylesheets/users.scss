@@ -58,14 +58,18 @@
 
   .date {
     color: #786e6a;
+    font-size: 10px;
   }
 
-  .field .prf_txt {
+  .prf_txt {
     height: 200px;
     width: 300px;
-    background-color: green;
   }
 
   .chk_box_psw {
     padding: 0px 0px 20px 0px;
+  }
+
+  #far fa-heart {
+    color: #786e6a;
   }

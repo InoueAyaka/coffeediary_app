@@ -66,13 +66,14 @@
 
                 
                 
+                    <div class="Separator5"><hr color="#c6bbb7"></div>
                 <div class="komidashi">
                   <% if current_page?(beans_path) or current_page?(root_path) %>
                     <%= form_tag({controller:"beans",action:"index"}, method: :get) do %>
                       <div class="box">
                         <%= text_field_tag :search %>
                         <div class="search_btn">
-                          <span class="srch_btn"><%= submit_tag '検索' %></span>
+                          <%= submit_tag '検索', class:"srch_btn" %>
                         </div>
                       </div>
                     <% end %>
@@ -86,11 +87,11 @@
       </div>
       
     </header>
-    <hr color="#ffffff">
+    <div class="Separator3"><hr color="#ffffff"></div>
     <main>
       <%= yield %>
     </main>
-    <hr color="#ffffff">
+    <div class="Separator3"><hr color="#ffffff"></div>
     <footer>
     <p>Copyright © Coffee Diary</p>
     </footer>

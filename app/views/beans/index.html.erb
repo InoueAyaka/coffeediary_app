@@ -27,6 +27,9 @@
                         <%= image_tag t.image_url, size: "250x200" if t.image? %>
                   </div>
                   <br>
+                  <div class="date">
+                        <%= t.created_at.to_s(:datetime_jp) %>
+                  </div>
                   <div class="title">
                         <% if user_signed_in? %>
                         <% if current_user.already_liked?(t) %>
@@ -47,12 +50,9 @@
                   <%= link_to "削除する", bean_path(t.id), method: :delete, data: { confirm: "削除しますか？" } %>
                   <% end %>
                   <p>
-                  <div class="title">
-                        <%= t.created_at.to_s(:datetime_jp) %>
-                  </div>
                   <p>
-                  <hr color="#ffffff">
-            </div>
+                  <div class="Separator2"><hr color="#ffffff"></div>
+                  </div>
       </div>
 <% end %> 
 <% end %>

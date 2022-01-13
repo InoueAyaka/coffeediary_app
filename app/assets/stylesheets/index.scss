@@ -1,6 +1,6 @@
 .beans-container {
-    width: 50%;
-    margin: 10px auto;
+    width: 80%;
+    margin: 5px;
   }
   h3 {
     width: 100px;
@@ -30,11 +30,32 @@ a {
     color: #786e6a;
   }
 
-  hr {
-    height: 8px;
+  .Separator {
+    height: 10px;
+    background-image: repeating-linear-gradient(45deg, #c6bbb7 0, #ccc 1px, transparent 0, transparent 50%);
+    background-size: 8px 8px;
+    width: 80%;
+  }
+
+  .Separator2 {
+    height: 10px;
     background-image: repeating-linear-gradient(45deg, #c6bbb7 0, #ccc 1px, transparent 0, transparent 50%);
     background-size: 8px 8px;
     width: 100%;
+  }
+
+  .Separator3 {
+    height: 10px;
+    background-image: repeating-linear-gradient(45deg, #c6bbb7 0, #ccc 1px, transparent 0, transparent 50%);
+    background-size: 8px 8px;
+    width: 100%;
+  }
+
+  .Separator4 {
+    height: 10px;
+    background-image: repeating-linear-gradient(45deg, #c6bbb7 0, #ccc 1px, transparent 0, transparent 50%);
+    background-size: 8px 8px;
+    width: 50%;
   }
 
 .heading {

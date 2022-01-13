@@ -175,6 +175,9 @@
       height: 30%;
     }
   
+  .button {
+    color: #ffffff;
+  }
   .hamburger-demo-menulist li a,  .komidashi .button{
     text-decoration: none;
     color: #f7efe9; /* メニューリストの文字色 */
@@ -192,6 +195,12 @@
     font-family: 'Caveat', cursive;
     padding: 30% 10%;
   }
+
+  .button:hover, .komidashi a:hover {
+    color: #786e6a;
+    }
+
+    
   /* メニューエリア･アニメーション */
     /* 右から */
   #hamburger-demo1:checked ~ .hamburger-demo-menuwrap{
@@ -222,8 +231,8 @@
 
   #search {
     width: 150px;
-    /* border: 3px red; */
     /* margin: 200px; */
+    border: 0px none;
   }
 
   .search_btn {
@@ -234,7 +243,7 @@
   .box {
     display: flex;
     margin: 0 auto;
-    padding: 10% 10%;
+    padding: 10% 0% 10% 0%;
   }
 
   .search_btn input[type="submit"] {
@@ -283,3 +292,25 @@
     width: 300px;
   }
 
+  .Separator5{
+    border-top: 2px dashed #f7efe9;
+    width: 75%;
+    text-align: center;
+    }
+
+    .srch_btn {
+      position: relative;
+      display: inline-block;
+      font-weight: bold;
+      text-decoration: none;
+      color: #786e6a;
+      background: #f7efe9;
+      transition: .4s;
+      border: 0px none;
+    }
+    
+    .srch_btn:hover {
+      background: #786e6a;
+      color: #f7efe9;
+      border: 0px none;
+    }

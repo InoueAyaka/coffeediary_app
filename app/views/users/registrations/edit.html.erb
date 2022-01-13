@@ -39,9 +39,7 @@
     <div class="user_title2">
       プロフィール
     </div>
-    <div class="prf_txt">
-      <%= f.text_area :profile, autofocus: true %>
-    </div>
+      <%= f.text_area :profile, autofocus: true, class: "prf_txt" %>
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
