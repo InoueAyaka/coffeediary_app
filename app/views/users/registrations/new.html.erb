@@ -24,16 +24,15 @@
       </div>
       
       <div class="field field1">
-        <div class="user_title2">
-          パスワード
-        </div>
+        <span class="user_title4">パスワード</span>
+        <span class="mini_txt">(最低6文字)</span><p>
         <%= f.password_field :password, autocomplete: "off" %>
       </div>
     
       <% if devise_mapping.rememberable? -%>
         <div class="field">
           <%= f.check_box :remember_me %>
-          パスワードを記憶する
+          <span class="mini_txt">パスワードを記憶する</span>
         </div>
       <% end -%>
       

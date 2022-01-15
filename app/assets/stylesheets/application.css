@@ -293,9 +293,9 @@
   }
 
   .Separator5{
-    border-top: 2px dashed #f7efe9;
-    width: 75%;
-    text-align: center;
+    border-top: 1px dashed #f7efe9;
+    width: 100%;
+    margin: 0 auto;
     }
 
     .srch_btn {

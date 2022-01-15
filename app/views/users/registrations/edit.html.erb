@@ -47,11 +47,8 @@
   <% end %>
 
   <div class="field">
-    <div class="user_title2">
-      新しいパスワード<p>
-      最低6文字
-    <br>
-    </div>
+    <span class="user_title4">新しいパスワード</span>
+    <span class="mini_txt">(最低6文字)</span>
     <%= f.password_field :password, autocomplete: "new-password" %>
     <% if @minimum_password_length %>
       <br />
@@ -62,9 +59,8 @@
   </div>
 
   <div class="field">
-  <div class="user_title2">
-    新しいパスワード(確認)
-  </div>
+  <span class="user_title4">新しいパスワード</span>
+  <span class="mini_txt">(確認)</span>
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 

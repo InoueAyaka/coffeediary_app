@@ -102,7 +102,7 @@ font {
 
   .box_item {
     width: 100%;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     // background-color: rgba($color: red, $alpha: 0.8);
   }
 
@@ -111,12 +111,17 @@ font {
     margin-bottom: 20px;
     position: absolute;
     text-align: left;
-    margin-left: 25%;
+    margin-left: 14%;
   }
   
   .bean_item_front {
     // background-color: rgba($color: green, $alpha: 0.3);
     z-index: 1;
+  }
+
+  .chara_tspt {
+    opacity: 0;
+    font-size: 8px;
   }
 
 
@@ -136,9 +141,49 @@ font {
     margin-left: 25%;
   }
 }
+@media(max-width:900px) {
+  .bean_item {
+    margin-left: 0%;
+  }
+}
+@media(max-width:800px) {
+  .bean_item {
+    margin-left: 0%;
+    width: 100%;
+    text-align: left;
+  }
+  .star-rating {
+    width: 90%;
+  }
+  .chara {
+    font-size: 5px;
+  }
+  .star-rating img {
+    margin: 0;
+  }
+  .box_item {
+    margin-bottom: 30px;
+  }
+  .body_midashi .bean_item {
+  margin-left: 0% !important;
+  }
+  .clean {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: left;
+  }
+  .one_bean {
+    margin-left: 3%;
+  }
+}
 @media(max-width:600px) {
   .bean_item {
     margin-left: 5%;
+  }
+  .one_bean {
+    margin-left: 2%;
   }
 }
 // メディアクエリ
