@@ -25,7 +25,7 @@ $(function(){
 
     //ウィンドウに対してloadイベントを設定
     //全ての要素をロードが終わったら，HideLoadingScreen()を実行する
-    $window.on('load',function(){
+    $(document).on('turbolinks:load', function() {
         HideLoadingScreen();
     })
     
