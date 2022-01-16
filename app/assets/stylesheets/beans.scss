@@ -130,29 +130,68 @@ font {
 
 
 
-@media(max-width:880px) {
-  .bean_item {
-    margin-left: 20%;
-  }
-  .box_item {
-    margin-bottom: 80px;
-  }
+// @media(max-width:880px) {
+//   .bean_item {
+//     margin-left: 20%;
+//   }
+//   .box_item {
+//     margin-bottom: 80px;
+//   }
 
+// }
+@media(max-width:1300px) {
+  .body_midashi .bean_item {
+    margin-left: 27% !important;
+  }
+  .bean_item {
+    margin-left: 24%;
+  }
+  .clean {
+    width: 90%;
+    // margin-left: 20%;
+    margin-right: 7%;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: left;
+  }
 }
-
+@media(max-width:1100px) {
+  .body_midashi .bean_item {
+    margin-left: 22% !important;
+  }
+}
 @media(max-width:1000px) {
-  .bean_item {
-    margin-left: 25%;
+  .body_midashi .bean_item {
+    margin-left: 18% !important;
   }
 }
 @media(max-width:900px) {
   .bean_item {
-    margin-left: 0%;
+    margin-left: 28%;
+  }
+  .star-rating {
+    width: 90%;
+  }
+  .chara {
+    font-size: 5px;
+  }
+  .star-rating img {
+    margin: 0;
+  }
+  .box_item {
+    margin-bottom: 30px;
+  }
+  .body_midashi .bean_item {
+  margin-left: 30% !important;
+  }
+  .clean {
+    margin: 0 auto;
+    flex-wrap: nowrap;
+    justify-content: left;
   }
 }
 @media(max-width:800px) {
   .bean_item {
-    margin-left: 0%;
     width: 100%;
     text-align: left;
   }
@@ -169,11 +208,12 @@ font {
     margin-bottom: 30px;
   }
   .body_midashi .bean_item {
-  margin-left: 0% !important;
+  margin-left: 21% !important;
   }
   .clean {
-    width: 80%;
-    margin: 0 auto;
+    width: 90%;
+    // margin-left: 20%;
+    margin-right: 7%;
     display: flex;
     flex-wrap: nowrap;
     justify-content: left;
@@ -181,14 +221,51 @@ font {
   .one_bean {
     margin-left: 3%;
   }
+  .bean_item {
+    margin-left: 17%;
+  }
 }
 @media(max-width:600px) {
-  .bean_item {
-    margin-left: 5%;
-  }
   .one_bean {
     margin-left: 2%;
   }
+  .bean_item {
+    margin-left: 13%;
+  }
+  .body_midashi .bean_item {
+    margin-left: 15% !important;
+  }
+}
+@media(max-width:500px) {
+  .one_bean {
+    margin-left: 2%;
+  }
+  .bean_item {
+    margin-left: 5%;
+  }
+  .body_midashi .bean_item {
+    margin-left: 6% !important;
+  }
+}
+@media(max-width:400px) {
+  .one_bean {
+    margin-left: 2%;
+  }
+  .bean_item {
+    margin-left: 5%;
+  }
+}
+@media(max-width:300px) {
+  .bean_item {
+    margin-left: 0% !important;
+  }
+  .body_midashi .bean_item {
+    margin-left: 0% !important;
+  }
+  // .clean {
+  //   width: 100% !important;
+  //   margin-right: 0% !important;
+  // }
 }
 // メディアクエリ
 

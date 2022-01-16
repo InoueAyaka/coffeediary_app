@@ -253,17 +253,17 @@
    </div>
             
                   <% if user_signed_in? %>
-                  <% if current_user.already_liked?(@bean) %>
-                  <%= link_to bean_like_path(@bean), method: :delete do %>
-                     <i class="fas fa-heart"></i><%= @bean.likes.count %>
+                     <% if current_user.already_liked?(@bean) %>
+                        <%= link_to bean_like_path(@bean), method: :delete do %>
+                           <i class="fas fa-heart"></i><%= @bean.likes.count %>
+                        <% end %>
+                        <% else %>
+                        <%= link_to bean_likes_path(@bean), method: :post do %>
+                           <i class="far fa-heart"></i><%= @bean.likes.count %>
+                     <% end %>
                   <% end %>
                   <% else %>
-                  <%= link_to bean_likes_path(@bean), method: :post do %>
-                     <i class="far fa-heart"></i><%= @bean.likes.count %>
-                  <% end %>
-                  <% end %>
-                  <% else %>
-                  <i class="far fa-heart"></i><%= @bean.likes.count %>
+                     <span class="heart"><i class="far fa-heart"></i><%= @bean.likes.count %></span>
                   <% end %>
                   
                   <div class="date">
