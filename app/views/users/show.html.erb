@@ -14,7 +14,7 @@
 <span class="user_title">メールアドレス :</span> <%= @user.email %>
 
 <p>
-<span class="user_title">プロフィール</span>
+<span class="user_title">プロフィール</span><p>
 <%= @user.profile %></p>
 
 <% if current_user.id == @user.id %>
@@ -47,8 +47,10 @@
             <i class="far fa-heart"></i><%= t.likes.count %>
         <% end %>
       <%= link_to "詳細へ", bean_path(t.id) %>
-      <%= link_to "編集する", edit_bean_path(t.id) %>
-      <%= link_to "削除する", bean_path(t.id), method: :delete, data: { confirm: "削除しますか？" }%>
+      <% if user_signed_in? && current_user.id == t.user_id %> 
+        <%= link_to "編集する", edit_bean_path(t.id) %>
+        <%= link_to "削除する", bean_path(t.id), method: :delete, data: { confirm: "削除しますか？" }%>
+      <% end %>
     </div>
 
     <span class="date"><%= t.created_at.to_s(:datetime_jp) %></span>
