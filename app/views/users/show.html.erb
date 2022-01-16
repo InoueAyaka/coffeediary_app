@@ -11,9 +11,7 @@
 
 <span class="user_title">ユーザー名 :</span> <%= @user.name %>
 <p>
-<span class="user_title">メールアドレス :</span> <%= @user.email %>
 
-<p>
 <span class="user_title">プロフィール</span><p>
 <%= @user.profile %></p>
 
@@ -25,68 +23,159 @@
 <div class="heading">
       投稿一覧
 </div>
-<% @user.beans.each do |t| %>
-    <div class="bean">
-      <div class="product_name">
-        <%= t.brand %><p>
-      </div>
-      <div class="thumbnail">
-        <%= image_tag t.image_url, size: "500x500" if t.image? %>
+
+<div class="tag_box">
+    <% if current_user.id == @user.id %>
+        <div class="tab-wrap">
+                <div class="tab-wrap">
+                <input id="TAB-01" type="radio" name="TAB" class="tab-switch" checked="checked" /><label class="tab-label" for="TAB-01">Release</label>
+                <div class="tab-content">
+                    <% @user.beans.each do |t| %>
+                        <% if t.privacy=="1" %>
+                            <div class="bean">
+                                <div class="product_name">
+                                    <%= t.brand %><p>
+                                </div>
+                                <div class="thumbnail">
+                                    <%= image_tag t.image_url, size: "500x500" if t.image? %>
+                                </div>
+                                    <% if user_signed_in? %>
+                                        <% if current_user.already_liked?(t) %>
+                                            <%= link_to bean_like_path(id: t.id, bean_id: t.id), method: :delete do %>
+                                                    <i class="fas fa-heart"></i><%= t.likes.count %>
+                                            <% end %>
+                                        <% else %>
+                                            <%= link_to bean_likes_path(id: t.id, bean_id: t.id), method: :post do %>
+                                                    <span class-"heart"><i class="far fa-heart"></i><%= t.likes.count %></span>
+                                            <% end %>
+                                        <% end %>
+                                    <% else %>
+                                        <i class="far fa-heart"></i><%= t.likes.count %>
+                                    <% end %>
+                                <%= link_to "詳細へ", bean_path(t.id) %>
+                                <% if user_signed_in? && current_user.id == t.user_id %> 
+                                    <%= link_to "編集する", edit_bean_path(t.id) %>
+                                    <%= link_to "削除する", bean_path(t.id), method: :delete, data: { confirm: "削除しますか？" }%>
+                                <% end %>
+                            </div>
+                            <span class="date"><%= t.created_at.to_s(:datetime_jp) %></span>
+                        <% end %>
+                    <% end %>
+                </div>
+                <input id="TAB-02" type="radio" name="TAB" class="tab-switch" /><label class="tab-label" for="TAB-02">Private</label>
+                <div class="tab-content">
+                    <% @user.beans.each do |t| %>
+                        <% if t.privacy=="2"&&t.user.id==current_user.id %>
+                            <div class="bean">
+                                <div class="product_name">
+                                    <%= t.brand %><p>
+                                </div>
+                                <div class="thumbnail">
+                                    <%= image_tag t.image_url, size: "500x500" if t.image? %>
+                                </div>
+                                    <% if user_signed_in? %>
+                                        <% if current_user.already_liked?(t) %>
+                                            <%= link_to bean_like_path(id: t.id, bean_id: t.id), method: :delete do %>
+                                                    <i class="fas fa-heart"></i><%= t.likes.count %>
+                                            <% end %>
+                                        <% else %>
+                                            <%= link_to bean_likes_path(id: t.id, bean_id: t.id), method: :post do %>
+                                                    <span class-"heart"><i class="far fa-heart"></i><%= t.likes.count %></span>
+                                            <% end %>
+                                        <% end %>
+                                    <% else %>
+                                        <i class="far fa-heart"></i><%= t.likes.count %>
+                                    <% end %>
+                                <%= link_to "詳細へ", bean_path(t.id) %>
+                                <% if user_signed_in? && current_user.id == t.user_id %> 
+                                    <%= link_to "編集する", edit_bean_path(t.id) %>
+                                    <%= link_to "削除する", bean_path(t.id), method: :delete, data: { confirm: "削除しますか？" }%>
+                                <% end %>
+                            </div>
+                            <span class="date"><%= t.created_at.to_s(:datetime_jp) %></span>
+                        <% end %>
+                    <% end %>
+                </div>
+                <input id="TAB-03" type="radio" name="TAB" class="tab-switch" /><label class="tab-label" for="TAB-03">Likes</label>
+                <div class="tab-content">
+                    <% @user.liked_beans.each do |t| %>
+                        <div class="bean">
+                        <div class="product_name">
+                            <%= t.brand %><p>
+                        </div>
+                        <div class="thumbnail">
+                            <%= image_tag t.image_url, size: "250x200" if t.image? %><p>
+                        </div>
+                        <span class="heart"><i class="far fa-heart"></i><%= t.likes.count %></span>
+                        <%= link_to "詳細へ", bean_path(t.id) %>
+                        <% if user_signed_in? && current_user.id == t.user_id %> 
+                        <%= link_to "編集する", edit_bean_path(t.id) %>
+                        <%= link_to "削除する", bean_path(t.id), method: :delete, data: { confirm: "削除しますか？" }%>
+                        <% end %>
+                        <div class="date">
+                            <%= t.created_at.to_s(:datetime_jp) %>
+                        </div>
+                    <% end %>
+                </div>
         </div>
-        <% if user_signed_in? %>
-            <% if current_user.already_liked?(t) %>
-                  <%= link_to bean_like_path(id: t.id, bean_id: t.id), method: :delete do %>
-                        <i class="fas fa-heart"></i><%= t.likes.count %>
-                  <% end %>
-            <% else %>
-                  <%= link_to bean_likes_path(id: t.id, bean_id: t.id), method: :post do %>
-                        <span class-"heart"><i class="far fa-heart"></i><%= t.likes.count %></span>
-                  <% end %>
-            <% end %>
-        <% else %>
-            <i class="far fa-heart"></i><%= t.likes.count %>
-        <% end %>
-      <%= link_to "詳細へ", bean_path(t.id) %>
-      <% if user_signed_in? && current_user.id == t.user_id %> 
-        <%= link_to "編集する", edit_bean_path(t.id) %>
-        <%= link_to "削除する", bean_path(t.id), method: :delete, data: { confirm: "削除しますか？" }%>
-      <% end %>
-    </div>
-
-    <span class="date"><%= t.created_at.to_s(:datetime_jp) %></span>
-  </div>
-
-<% end %>
-<div class="Separator4"><hr color="#ffffff"></div>
-
-<br>
-<div class="heading">
-  いいね一覧
-</div>
-<% @user.liked_beans.each do |t| %>
-    <div class="bean">
-    <div class="product_name">
-      <%= t.brand %><p>
-    </div>
-    <div class="thumbnail">
-      <%= image_tag t.image_url, size: "250x200" if t.image? %><p>
-    </div>
-    <span class="heart"><i class="far fa-heart"></i><%= t.likes.count %></span>
-    <%= link_to "詳細へ", bean_path(t.id) %>
-    <% if user_signed_in? && current_user.id == t.user_id %> 
-      <%= link_to "編集する", edit_bean_path(t.id) %>
-      <%= link_to "削除する", bean_path(t.id), method: :delete, data: { confirm: "削除しますか？" }%>
+    <% else %>
+        <div class="tab-wrap">
+            <input id="TAB-01" type="radio" name="TAB" class="tab-switch" checked="checked" /><label class="tab-label" for="TAB-01">Release</label>
+            <div class="tab-content">
+                <% @user.beans.each do |t| %>
+                    <% if t.privacy=="1" %>
+                        <div class="bean">
+                            <div class="product_name">
+                                <%= t.brand %><p>
+                            </div>
+                            <div class="thumbnail">
+                                <%= image_tag t.image_url, size: "500x500" if t.image? %>
+                            </div>
+                                <% if user_signed_in? %>
+                                    <% if current_user.already_liked?(t) %>
+                                        <%= link_to bean_like_path(id: t.id, bean_id: t.id), method: :delete do %>
+                                                <i class="fas fa-heart"></i><%= t.likes.count %>
+                                        <% end %>
+                                    <% else %>
+                                        <%= link_to bean_likes_path(id: t.id, bean_id: t.id), method: :post do %>
+                                                <span class-"heart"><i class="far fa-heart"></i><%= t.likes.count %></span>
+                                        <% end %>
+                                    <% end %>
+                                <% else %>
+                                    <i class="far fa-heart"></i><%= t.likes.count %>
+                                <% end %>
+                            <%= link_to "詳細へ", bean_path(t.id) %>
+                            <% if user_signed_in? && current_user.id == t.user_id %> 
+                                <%= link_to "編集する", edit_bean_path(t.id) %>
+                                <%= link_to "削除する", bean_path(t.id), method: :delete, data: { confirm: "削除しますか？" }%>
+                            <% end %>
+                        </div>
+                        <span class="date"><%= t.created_at.to_s(:datetime_jp) %></span>
+                    <% end %>
+                <% end %>
+            </div>
+            <input id="TAB-02" type="radio" name="TAB" class="tab-switch" /><label class="tab-label" for="TAB-02">Likes</label>
+            <div class="tab-content">
+                <% @user.liked_beans.each do |t| %>
+                    <div class="bean">
+                    <div class="product_name">
+                        <%= t.brand %><p>
+                    </div>
+                    <div class="thumbnail">
+                        <%= image_tag t.image_url, size: "250x200" if t.image? %><p>
+                    </div>
+                    <span class="heart"><i class="far fa-heart"></i><%= t.likes.count %></span>
+                    <%= link_to "詳細へ", bean_path(t.id) %>
+                    <% if user_signed_in? && current_user.id == t.user_id %> 
+                    <%= link_to "編集する", edit_bean_path(t.id) %>
+                    <%= link_to "削除する", bean_path(t.id), method: :delete, data: { confirm: "削除しますか？" }%>
+                    <% end %>
+                    <div class="date">
+                        <%= t.created_at.to_s(:datetime_jp) %>
+                    </div>
+                <% end %>
+                <div class="Separator4"><hr color="#ffffff"></div>
+            </div>
+        </div>
     <% end %>
-  </div>
-  <div class="date">
-    <%= t.created_at.to_s(:datetime_jp) %>
-  </div>
-  
-  </div>
-<% end %>
-<div class="Separator4"><hr color="#ffffff"></div>
-
-<br>
-<div class="heading">
-  <%= link_to "投稿一覧に戻る", beans_path %>
 </div>

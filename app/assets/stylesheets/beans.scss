@@ -345,3 +345,15 @@ font {
 .submit_btn:hover {
   background-image: linear-gradient(45deg, #786e6a 10%, #c6bbb7 100%);
 }
+
+.wrapper{
+  width:100%;
+  overflow-x: hidden;
+  }
+
+@media(max-width:300px) {
+  .wrapper{
+    width:100%;
+    }
+  }
+

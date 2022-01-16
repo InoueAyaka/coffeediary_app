@@ -30,120 +30,128 @@ Coffee diary
 </fieldset>
 </form>
 
-
-
-
-インデックス投稿全表示
-<%= t.shop %>
+<center>
+<div class="heading">
+  <div class="heading2">
+    Profile
+  </div>
+</div>
 <br>
-<%= t.area %>
+<div class="icon">
+  <%= image_tag @user.image_url, size: "200x200" if @user.image? %>
+</div>
+
+<span class="user_title">ユーザー名 :</span> <%= @user.name %>
+<p>
+
+<span class="user_title">プロフィール</span><p>
+<%= @user.profile %></p>
+
+<% if current_user.id == @user.id %>
+  <%= link_to "編集する", edit_user_registration_path %>
+<% end %>
 <br>
-<%= t.food %>
-<br>
-<%= t.brew %>
-<br>
-<%= t.free %>
-<br>
 
-<!--- テイスティング部分------->     
-<div>
-<font color="#786e6a">テイスティング</font>：
-<span class="star-rating">
-<span class="star-rating-front" style="width: <%= getPercent(t.tasting) %>%;">★★★★★</span>
-<span class="star-rating-back">★★★★★</span>
-</span> 
+<div class="heading">
+      投稿一覧
 </div>
-
-<!--- テイスティング部分終わり------->
-
-
-<!--- ボディの部分 ------------>
-<div>
-<font color="#786e6a">ボディ</font>：
-<span class="star-rating">
-<span class="star-rating-front" style="width: <%= getPercent(t.body) %>%;">★★★★★</span>
-<span class="star-rating-back">★★★★★</span>
-</span>
-</div>
-<!--- ボディ部分終わり-------->
-
-<!--- 焙煎度の部分 ------------>
-<div>
-<font color="#786e6a">焙煎度</font>：
-<span class="star-rating">
-<span class="star-rating-front" style="width: <%= getPercent(t.roast) %>%;">★★★★★</span>
-<span class="star-rating-back">★★★★★</span>
-</span>
-</div>
-<!--- 焙煎度部分終わり-------->
-
-<div class="bean_box">
-<!--- テイスティングの部分 ------------>
-<div class="title">
-テイスティング
-</div>
-
-<div class="box_item">
-<span class="star-rating">
-   <div class="bean_item bean_item_front">
-      <% (2..@bean.tasting).each do |n| %>
-         <div class="one_bean"> 
-            <% if n == 1 %>
-            <p class="chara transparent">酸味</p>
-            <% end %>
-            <%= image_tag 'mink.png' %>
-         </div>
-      <% end %>
-   </div>
-   <div class="bean_item">
-      <% (1..9).each do |n| %>
-         <div class="one_bean"> 
-            <% if n == 1 %>
-            <p class="chara transparent">酸味</p>
-            <% end %>
-            <% if n == 9 %>
-            <p class="chara transparent">苦味</p>
-            <% end %>
-            <%= image_tag 'hyggegray.png' %>
-         </div>
-      <% end %>
-   </div>
-</span> 
-</div>
-<!--- テイスティング部分終わり------->
-
-<!--- ボディの部分 ------------>
-<div class="title">
-ボディ
-</div>
-<div class="box_item">
-<span class="star-rating">
-   <div class="body_midashi">
-      <div class="bean_item bean_item_front">
-         <% (1..@bean.body).each do |n| %>
-            <div class="one_bean"> 
-            <% if n == 1 %>
-            <p class="chara transparent">ライト</p>
-            <% end %>
-               <%= image_tag 'mink.png' %>
-         <% end %>
+<% @user.beans.each do |t| %>
+    <% if t.privacy=="1" %>
+      <div class="bean">
+        <div class="product_name">
+          <%= t.brand %><p>
+        </div>
+        <div class="thumbnail">
+          <%= image_tag t.image_url, size: "500x500" if t.image? %>
+          </div>
+          <% if user_signed_in? %>
+              <% if current_user.already_liked?(t) %>
+                    <%= link_to bean_like_path(id: t.id, bean_id: t.id), method: :delete do %>
+                          <i class="fas fa-heart"></i><%= t.likes.count %>
+                    <% end %>
+              <% else %>
+                    <%= link_to bean_likes_path(id: t.id, bean_id: t.id), method: :post do %>
+                          <span class-"heart"><i class="far fa-heart"></i><%= t.likes.count %></span>
+                    <% end %>
+              <% end %>
+          <% else %>
+              <i class="far fa-heart"></i><%= t.likes.count %>
+          <% end %>
+        <%= link_to "詳細へ", bean_path(t.id) %>
+        <% if user_signed_in? && current_user.id == t.user_id %> 
+          <%= link_to "編集する", edit_bean_path(t.id) %>
+          <%= link_to "削除する", bean_path(t.id), method: :delete, data: { confirm: "削除しますか？" }%>
+          <span class="date"><%= t.created_at.to_s(:datetime_jp) %></span>
+        <% end %>
       </div>
-      <div class="bean_item">
-         <% (1..5).each do |n| %>
-            <div class="one_bean">
-               <% if n == 1 %>
-                  <p class="chara">ライト</p>
-               <% end %>
-               <% if n == 3 %>
-                  <p class="chara">ミディアム</p>
-               <% end %>
-               <% if n == 5 %>
-                  <p class="chara">フル</p>
-               <% end %>
-               <%= image_tag 'hyggegray.png' %>
-            </div> 
-         <% end %>
+    <% elsif t.privacy=="2"&&t.user.id==current_user.id %>
+      <div class="bean">
+        <div class="product_name">
+          <%= t.brand %><p>
+        </div>
+        <div class="thumbnail">
+          <%= image_tag t.image_url, size: "500x500" if t.image? %>
+          </div>
+          <% if user_signed_in? %>
+              <% if current_user.already_liked?(t) %>
+                    <%= link_to bean_like_path(id: t.id, bean_id: t.id), method: :delete do %>
+                          <i class="fas fa-heart"></i><%= t.likes.count %>
+                    <% end %>
+              <% else %>
+                    <%= link_to bean_likes_path(id: t.id, bean_id: t.id), method: :post do %>
+                          <span class-"heart"><i class="far fa-heart"></i><%= t.likes.count %></span>
+                    <% end %>
+              <% end %>
+          <% else %>
+              <i class="far fa-heart"></i><%= t.likes.count %>
+          <% end %>
+        <%= link_to "詳細へ", bean_path(t.id) %>
+        <% if user_signed_in? && current_user.id == t.user_id %> 
+          <%= link_to "編集する", edit_bean_path(t.id) %>
+          <%= link_to "削除する", bean_path(t.id), method: :delete, data: { confirm: "削除しますか？" }%>
+          <span class="date"><%= t.created_at.to_s(:datetime_jp) %></span>
+        <% end %>
       </div>
-   </div>
-</span>
+    <% end %>
+<% end %>
+<div class="Separator4"><hr color="#ffffff"></div>
+
+<br>
+<div class="heading">
+  いいね一覧
 </div>
+<% @user.liked_beans.each do |t| %>
+      <div class="bean">
+      <div class="product_name">
+        <%= t.brand %><p>
+      </div>
+      <div class="thumbnail">
+        <%= image_tag t.image_url, size: "250x200" if t.image? %><p>
+      </div>
+      <span class="heart"><i class="far fa-heart"></i><%= t.likes.count %></span>
+      <%= link_to "詳細へ", bean_path(t.id) %>
+      <% if user_signed_in? && current_user.id == t.user_id %> 
+        <%= link_to "編集する", edit_bean_path(t.id) %>
+        <%= link_to "削除する", bean_path(t.id), method: :delete, data: { confirm: "削除しますか？" }%>
+      <% end %>
+    <div class="date">
+      <%= t.created_at.to_s(:datetime_jp) %>
+    </div>
+<% end %>
+<div class="Separator4"><hr color="#ffffff"></div>
+
+<br>
+<div class="heading">
+  <%= link_to "投稿一覧に戻る", beans_path %>
+</div>
+
+
+
+
+
+
+
+
+
+
+

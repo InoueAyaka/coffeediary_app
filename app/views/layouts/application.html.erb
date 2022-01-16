@@ -26,81 +26,81 @@
     </div>
     
     <header>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Caveat&display=swap" rel="stylesheet">
-    <div class="big_midashi">
-      <%= link_to "Coffee Diary", beans_path %>
-    </div>
-      <div class="header-list">
-
-          <div class="hamburger-demo-menubox">
-            <input id="hamburger-demo1" type="checkbox" class="input-hidden">
-            <label for="hamburger-demo1" class="hamburger-demo-switch hamburger-demo-switch1">
-              <span class="hamburger-switch-line1"></span>
-            </label>
-
-              <div class="hamburger-demo-menuwrap">
-                <ul class="hamburger-demo-menulist">
-                    <% if user_signed_in? %>
-
-                      <div class="komidashi">
-                        <li><%= link_to "My Page", user_path(current_user.id), class:"mypage" %></li>
-                      </div>
-
-                      <div class="komidashi">
-                        <li><%= link_to "New Post",new_bean_path, class:"newpost" %></li>
-                      </div>
-                      
-                      <div class="komidashi">
-                        <li><%= button_to "Log out",destroy_user_session_path, method: :delete, class:"button" %></li>
-                      </div>
-                    <% else %>
-
-                      <div class="komidashi">
-                        <li><%= link_to "Log in",user_session_path, class:"login" %></li>
-                      </div>
-
-                      <div class="komidashi">
-                        <li><%= link_to "Registration",new_user_registration_path, class:"rgst" %></li>
-                      </div>
-                    <% end %>
-
-                    
-                                
-
-                
-                
-                    <div class="komidashi">
-                    <% if current_page?(beans_path) or current_page?(root_path) %>
-                    <div class="Separator5"><hr color="#c6bbb7"></div>
-                    <%= form_tag({controller:"beans",action:"index"}, method: :get) do %>
-                      <div class="box">
-                        <%= text_field_tag :search %>
-                        <div class="search_btn">
-                          <%= submit_tag '検索', class:"srch_btn" %>
-                        </div>
-                      </div>
-                    <% end %>
-                  <% end %>
-                </div>
-              
-
-            </ul>
-            </div>
-          </div>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Caveat&display=swap" rel="stylesheet">
+      <div class="big_midashi">
+        <%= link_to "Coffee Diary", beans_path %>
       </div>
-      
+        <div class="header-list">
+
+            <div class="hamburger-demo-menubox">
+              <input id="hamburger-demo1" type="checkbox" class="input-hidden">
+              <label for="hamburger-demo1" class="hamburger-demo-switch hamburger-demo-switch1">
+                <span class="hamburger-switch-line1"></span>
+              </label>
+
+                <div class="hamburger-demo-menuwrap">
+                  <ul class="hamburger-demo-menulist">
+                      <% if user_signed_in? %>
+
+                        <div class="komidashi">
+                          <li><%= link_to "My Page", user_path(current_user.id), class:"mypage" %></li>
+                        </div>
+
+                        <div class="komidashi">
+                          <li><%= link_to "New Post",new_bean_path, class:"newpost" %></li>
+                        </div>
+                        
+                        <div class="komidashi">
+                          <li><%= button_to "Log out",destroy_user_session_path, method: :delete, class:"button" %></li>
+                        </div>
+                      <% else %>
+
+                        <div class="komidashi">
+                          <li><%= link_to "Log in",user_session_path, class:"login" %></li>
+                        </div>
+
+                        <div class="komidashi">
+                          <li><%= link_to "Registration",new_user_registration_path, class:"rgst" %></li>
+                        </div>
+                      <% end %>
+
+                      
+                                  
+
+                  
+                  
+                      <div class="komidashi">
+                          <% if current_page?(beans_path) or current_page?(root_path) %>
+                              <div class="separator5">
+                                <hr color="#c6bbb7">
+                              </div>
+                              <div class="srch_window">
+                                <%= form_tag({controller:"beans",action:"index"}, method: :get) do %>
+                                    <div class="box">
+                                      <%= text_field_tag :search %>
+                                      <div class="search_btn">
+                                        <%= submit_tag '検索', class:"srch_btn" %>
+                                      </div>
+                                    </div>
+                                <% end %>
+                              </div>
+                          <% end %>
+                      </div>
+                  </ul>
+            </div>
+        </div>
     </header>
     <div class="Separator3"><hr color="#ffffff"></div>
-    <main>
-      <%= yield %>
-    </main>
+      <main>
+        <%= yield %>
+      </main>
     <div class="Separator3"><hr color="#ffffff"></div>
     <footer>
-    <p>Copyright © Coffee Diary</p>
+      <p>Copyright © Coffee Diary</p>
     </footer>
-    </body>
+  </body>
 </html>
 
 <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>

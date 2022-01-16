@@ -62,3 +62,4 @@ gem 'slim-rails' #slimファイルを使えるようにする
 group :production do
   gem 'pg'
 end
+gem 'kaminari'

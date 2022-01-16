@@ -1,25 +1,12 @@
 class BeansController < ApplicationController
     def index
-      if params[:search] != nil && params[:search] != ''
-        #部分検索かつ複数検索
-        search = params[:search]
-        @beans = Bean.joins(:user).where("shop LIKE ? OR area LIKE ? OR free LIKE ? OR brand LIKE ? OR food LIKE ? OR brew LIKE ?" , "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%")
+      if params[:search] == nil
+        @beans= Bean.all.page(params[:page]).per(3)
+      elsif params[:search] == ''
+        @beans= Bean.all.page(params[:page]).per(3)
       else
-        @beans = Bean.all
+        @beans = Bean.where("shop LIKE ? OR area LIKE ? OR free LIKE ? OR brand LIKE ? OR food LIKE ? OR brew LIKE ?" , "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%").page(params[:page]).per(3)
       end
-
-      # if params[:search] == nil
-      #   @beans= Bean.all.order(created_at: :desc)
-      # elsif params[:search] == ''
-      #   @beans= Bean.all.order(created_at: :desc)
-      # else
-      #   #部分検索
-      #   @beans = Bean.where("name LIKE ? ",'%' + params[:search] + '%').order(created_at: :desc)
-      # end
-
-      # @beans = Bean.all
-      # @beans = Bean.all.order(created_at: :desc)
-
     end
     
     def link

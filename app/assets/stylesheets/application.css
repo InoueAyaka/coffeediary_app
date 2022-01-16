@@ -149,6 +149,7 @@
     left: 100%;
     width: 70%;
   }
+  
   /* メニューリスト */
   .hamburger-demo-menulist{
     margin-right: 3%;
@@ -158,6 +159,9 @@
     flex-direction: column;
     width: 100%;
     height: 100%;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    margin-bottom:50px;
     }
     .komidashi {
       width:40%;
@@ -292,10 +296,10 @@
     width: 300px;
   }
 
-  .Separator5{
+  .separator5{
     border-top: 1px dashed #f7efe9;
     width: 100%;
-    margin: 0 auto;
+    margin-left: 30px;
     }
 
     .srch_btn {
@@ -334,8 +338,4 @@
             height: 100px;
             display: none;
             margin: 0 auto;
-        }
-
-        body {
-          overflow-x: hidden;
         }
