@@ -185,9 +185,12 @@ font {
   margin-left: 30% !important;
   }
   .clean {
-    margin: 0 auto;
+    // margin: 0 auto;
     flex-wrap: nowrap;
     justify-content: left;
+  }
+  .one_bean {
+    margin-left: 10px;
   }
 }
 @media(max-width:800px) {
@@ -357,3 +360,10 @@ font {
     }
   }
 
+  .already_heart {
+    color: #786e6a;
+  }
+
+  .memo_area {
+    width: 80%;
+  }

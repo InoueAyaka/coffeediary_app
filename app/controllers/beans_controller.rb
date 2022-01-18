@@ -1,11 +1,11 @@
 class BeansController < ApplicationController
     def index
-      if params[:search] == nil
-        @beans= Bean.all.page(params[:page]).per(3)
-      elsif params[:search] == ''
-        @beans= Bean.all.page(params[:page]).per(3)
+      if params[:search] != nil && params[:search] != ''
+        #部分検索かつ複数検索
+        search = params[:search]
+        @beans = Bean.where("shop LIKE ? OR area LIKE ? OR free LIKE ? OR brand LIKE ? OR food LIKE ? OR brew LIKE ?" , "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%").page(params[:page]).per(10)
       else
-        @beans = Bean.where("shop LIKE ? OR area LIKE ? OR free LIKE ? OR brand LIKE ? OR food LIKE ? OR brew LIKE ?" , "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%").page(params[:page]).per(3)
+        @beans = Bean.all.page(params[:page]).per(10)
       end
     end
     
@@ -25,6 +25,7 @@ class BeansController < ApplicationController
           redirect_to :action => "new"
         end
       end
+      
     
       def show
         @bean = Bean.find(params[:id])

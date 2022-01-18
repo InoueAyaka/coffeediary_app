@@ -41,13 +41,17 @@
          <div class="title">
             メモ
          </div>
-         <p><span class="memo_area"><%= @bean.free %></span></p>
+         <p>
+         <div class="memo_area">
+               <%= @bean.free %>
+               </div>
+         </p>
          <div class="Separator"><hr color="#ffffff"></div>
 
          <div class="thumbnail">
             <%= link_to @bean.image.url, 'data-lightbox': @bean.image do %>
                <%= image_tag @bean.image.to_s %>
-            <% end %>
+               <% end %>
          </div>
             </div>
             </div>
@@ -253,20 +257,9 @@
       </div>
    </div>
             
-                  <% if user_signed_in? %>
-                     <% if current_user.already_liked?(@bean) %>
-                        <%= link_to bean_like_path(@bean), method: :delete do %>
-                           <i class="fas fa-heart"></i><%= @bean.likes.count %>
-                        <% end %>
-                        <% else %>
-                        <%= link_to bean_likes_path(@bean), method: :post do %>
-                           <i class="far fa-heart"></i><%= @bean.likes.count %>
-                     <% end %>
-                  <% end %>
-                  <% else %>
-                     <span class="heart"><i class="far fa-heart"></i><%= @bean.likes.count %></span>
-                  <% end %>
-                  
+                  <span id="likes_buttons_<%= @bean.id %>">
+                     <%= render "likes/like", bean: @bean %>
+                     </span>
                   <div class="date">
                         投稿日時: 
                      <%= @bean.created_at.to_s(:datetime_jp) %><p>

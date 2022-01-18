@@ -80,7 +80,7 @@
 
   .tab-wrap {
     display: flex;
-    justify-content: center;
+    // justify-content: center;
     flex-wrap: wrap;
     margin:10px 0;
   }
@@ -142,5 +142,20 @@
   }
   /* ラジオボタン非表示 */
   .tab-switch {
+    display: none;
+  }
+
+  .user_name {
+    background: linear-gradient(transparent 50%, #c6bbb7 50%);
+    font-size: 20px;
+  }
+
+  .user_prf {
+    border-top: dashed 1px #c6bbb7;
+    border-bottom: dashed 1px #c6bbb7;	
+    width: 40%;
+    margin-top: 10px;
+  }
+  .user_prf:empty {
     display: none;
   }

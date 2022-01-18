@@ -3,6 +3,8 @@
 // a relevant structure within app/javascript and only use these pack files to reference
 // that code so it'll be compiled.
 //= require jquery_ujs
+//= require jquery
+//= require rails-ujs
 
 import Rails from "@rails/ujs";
 // import Turbolinks from "turbolinks"
@@ -39,4 +41,5 @@ $(function(){
         $load.delay(1500).fadeOut("slow");
     }
 }); 
+
 

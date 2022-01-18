@@ -1,33 +1,25 @@
 <center>
 <div class="heading">
-  <div class="heading2">
-    Profile
-  </div>
+    <span class="heading2">Profile</span>
 </div>
 <br>
 <div class="icon">
-  <%= image_tag @user.image_url, size: "200x200" if @user.image? %>
+    <%= image_tag @user.image_url, size: "200x200" if @user.image? %>
 </div>
 
-<span class="user_title">ユーザー名 :</span> <%= @user.name %>
+<span class="user_name"><%= @user.name %></span>
 <p>
 
-<span class="user_title">プロフィール</span><p>
-<%= @user.profile %></p>
+<div class="user_prf"><%= @user.profile %></div>
 
 <% if current_user.id == @user.id %>
-  <%= link_to "編集する", edit_user_registration_path %>
+    <%= link_to "編集する", edit_user_registration_path %>
 <% end %>
 <br>
-
-<div class="heading">
-      投稿一覧
-</div>
 
 <div class="tag_box">
     <% if current_user.id == @user.id %>
         <div class="tab-wrap">
-                <div class="tab-wrap">
                 <input id="TAB-01" type="radio" name="TAB" class="tab-switch" checked="checked" /><label class="tab-label" for="TAB-01">Release</label>
                 <div class="tab-content">
                     <% @user.beans.each do |t| %>
@@ -39,20 +31,10 @@
                                 <div class="thumbnail">
                                     <%= image_tag t.image_url, size: "500x500" if t.image? %>
                                 </div>
-                                    <% if user_signed_in? %>
-                                        <% if current_user.already_liked?(t) %>
-                                            <%= link_to bean_like_path(id: t.id, bean_id: t.id), method: :delete do %>
-                                                    <i class="fas fa-heart"></i><%= t.likes.count %>
-                                            <% end %>
-                                        <% else %>
-                                            <%= link_to bean_likes_path(id: t.id, bean_id: t.id), method: :post do %>
-                                                    <span class-"heart"><i class="far fa-heart"></i><%= t.likes.count %></span>
-                                            <% end %>
-                                        <% end %>
-                                    <% else %>
-                                        <i class="far fa-heart"></i><%= t.likes.count %>
-                                    <% end %>
-                                <%= link_to "詳細へ", bean_path(t.id) %>
+                                <span id="likes_buttons_<%= t.id %>">
+                                    <%= render "likes/like", bean: t %>
+                                    </span>
+                            <%= link_to "詳細へ", bean_path(t.id) %>
                                 <% if user_signed_in? && current_user.id == t.user_id %> 
                                     <%= link_to "編集する", edit_bean_path(t.id) %>
                                     <%= link_to "削除する", bean_path(t.id), method: :delete, data: { confirm: "削除しますか？" }%>
@@ -73,19 +55,9 @@
                                 <div class="thumbnail">
                                     <%= image_tag t.image_url, size: "500x500" if t.image? %>
                                 </div>
-                                    <% if user_signed_in? %>
-                                        <% if current_user.already_liked?(t) %>
-                                            <%= link_to bean_like_path(id: t.id, bean_id: t.id), method: :delete do %>
-                                                    <i class="fas fa-heart"></i><%= t.likes.count %>
-                                            <% end %>
-                                        <% else %>
-                                            <%= link_to bean_likes_path(id: t.id, bean_id: t.id), method: :post do %>
-                                                    <span class-"heart"><i class="far fa-heart"></i><%= t.likes.count %></span>
-                                            <% end %>
-                                        <% end %>
-                                    <% else %>
-                                        <i class="far fa-heart"></i><%= t.likes.count %>
-                                    <% end %>
+                                <span id="likes_buttons_<%= t.id %>">
+                                    <%= render "likes/like", bean: t %>
+                                    </span>
                                 <%= link_to "詳細へ", bean_path(t.id) %>
                                 <% if user_signed_in? && current_user.id == t.user_id %> 
                                     <%= link_to "編集する", edit_bean_path(t.id) %>
@@ -106,7 +78,7 @@
                         <div class="thumbnail">
                             <%= image_tag t.image_url, size: "250x200" if t.image? %><p>
                         </div>
-                        <span class="heart"><i class="far fa-heart"></i><%= t.likes.count %></span>
+                        <span class="already_heart"><i class="far fa-heart"></i><%= t.likes.count %></span>
                         <%= link_to "詳細へ", bean_path(t.id) %>
                         <% if user_signed_in? && current_user.id == t.user_id %> 
                         <%= link_to "編集する", edit_bean_path(t.id) %>
@@ -131,19 +103,9 @@
                             <div class="thumbnail">
                                 <%= image_tag t.image_url, size: "500x500" if t.image? %>
                             </div>
-                                <% if user_signed_in? %>
-                                    <% if current_user.already_liked?(t) %>
-                                        <%= link_to bean_like_path(id: t.id, bean_id: t.id), method: :delete do %>
-                                                <i class="fas fa-heart"></i><%= t.likes.count %>
-                                        <% end %>
-                                    <% else %>
-                                        <%= link_to bean_likes_path(id: t.id, bean_id: t.id), method: :post do %>
-                                                <span class-"heart"><i class="far fa-heart"></i><%= t.likes.count %></span>
-                                        <% end %>
-                                    <% end %>
-                                <% else %>
-                                    <i class="far fa-heart"></i><%= t.likes.count %>
-                                <% end %>
+                            <span id="likes_buttons_<%= t.id %>">
+                                <%= render "likes/like", bean: t %>
+                                </span>
                             <%= link_to "詳細へ", bean_path(t.id) %>
                             <% if user_signed_in? && current_user.id == t.user_id %> 
                                 <%= link_to "編集する", edit_bean_path(t.id) %>
@@ -164,7 +126,7 @@
                     <div class="thumbnail">
                         <%= image_tag t.image_url, size: "250x200" if t.image? %><p>
                     </div>
-                    <span class="heart"><i class="far fa-heart"></i><%= t.likes.count %></span>
+                    <span class="already_heart"><i class="far fa-heart"></i><%= t.likes.count %></span>
                     <%= link_to "詳細へ", bean_path(t.id) %>
                     <% if user_signed_in? && current_user.id == t.user_id %> 
                     <%= link_to "編集する", edit_bean_path(t.id) %>
