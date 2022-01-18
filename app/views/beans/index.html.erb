@@ -30,9 +30,11 @@
                               <div class="date">
                                     <%= t.created_at.to_s(:datetime_jp) %>
                               </div>
-                              <span id="likes_buttons_<%= t.id %>">
-                                    <%= render "likes/like", bean: t %>
-                                    </span>
+                              <div class="likes_btn">
+                                    <span id="likes_buttons_<%= t.id %>">
+                                          <%= render "likes/like", bean: t %>
+                                          </span>
+                                    </div>
                                           <%= link_to "詳細へ", bean_path(t.id) %>
                                           <% if user_signed_in? && current_user.id == t.user_id %>  
                                                 <%= link_to "編集する", edit_bean_path(t.id) %>

@@ -1,13 +1,13 @@
 <% if user_signed_in? %>
     <% if current_user.already_liked?(bean) %>
                     <%= link_to bean_like_path(id: bean.id, bean_id: bean.id), method: :delete, remote: true do %>
-                    <i class="fas fa-heart"></i><%= bean.likes.count %>
+                    <i class="fas fa-heart" style="color:#786e6a;></i><%= bean.likes.count %>
                 <% end %>
         <% else %>
                 <%= link_to bean_likes_path(id: bean.id, bean_id: bean.id), method: :post, remote: true do %>
-                    <i class="far fa-heart"></i><%= bean.likes.count %>
+                    <i class="far fa-heart" style="color:#786e6a;></i><%= bean.likes.count %>
                 <% end %>
         <% end %>
     <% else %>
-        <i class="far fa-heart"></i><%= bean.likes.count %>
+        <i class="far fa-heart" style="color:#786e6a;"></i><%= bean.likes.count %>
     <% end %>
