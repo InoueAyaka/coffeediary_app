@@ -1,0 +1,8 @@
+<br>
+<%= @bean.id %>
+
+<% @bean.bean_images.each do |image| %>
+  <%= link_to image.image.url, 'data-lightbox': image.image do %>
+    <%= image_tag image.image_url, size: "250x200" %>
+  <% end %>
+<% end %>

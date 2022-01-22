@@ -36,6 +36,10 @@ class BeansController < ApplicationController
         @comment = Comment.new
       end
 
+      def image_show
+        @bean = Bean.find(params[:id])
+      end
+
       def edit
         @bean = Bean.find(params[:id])
         
