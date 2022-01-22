@@ -49,9 +49,11 @@
          <div class="Separator"><hr color="#ffffff"></div>
 
          <div class="thumbnail">
-            <%= link_to @bean.image.url, 'data-lightbox': @bean.image do %>
-               <%= image_tag @bean.image.to_s %>
+            <% @bean.bean_images.each do |image| %>
+               <%= link_to image.image.url, 'data-lightbox': image.image do %>
+                  <%= image_tag image.image_url, size: "250x200" %>
                <% end %>
+            <% end %>
          </div>
             </div>
             </div>

@@ -20,6 +20,9 @@ class BeansController < ApplicationController
         bean = Bean.new(bean_params)
         bean.user_id = current_user.id
         if bean.save
+          params[:bean][:bean_images].each  do |image|
+            BeanImage.create!(image: image, bean_id: bean.id)
+          end
           redirect_to :action => "index"
         else
           redirect_to :action => "new"
@@ -57,7 +60,6 @@ class BeansController < ApplicationController
       
       private
       def bean_params
-        params.require(:bean).permit(:name,:shop,:area,:food,:brew,:free,:image,:tasting,:body,:roast,:privacy,:brand)
+        params.require(:bean).permit(:name,:shop,:area,:food,:brew,:free,:tasting,:body,:roast,:privacy,:brand)
       end
-
 end

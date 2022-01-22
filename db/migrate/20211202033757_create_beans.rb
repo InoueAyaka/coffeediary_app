@@ -4,7 +4,6 @@ class CreateBeans < ActiveRecord::Migration[6.1]
       t.text :name
       t.text :shop
       t.text :area
-      t.string :image
       t.integer :tasting
       t.integer :body
       t.integer :roast

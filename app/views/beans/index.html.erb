@@ -15,16 +15,18 @@
                   <% end %>
                   <div class="bean">
                         <div class="right-container">
-                                    <div class="title">
-                                          名称
-                                    </div>
-                                    <%= t.brand %>
-                                    <div class="title">
-                                          購入場所
-                                    </div>
-                                    <%= t.shop %>
+                                    <span class="title">名称</span>
+                                    <div class="title_name">
+                                          <%= t.brand %>
+                                          </div>
+                                    <span class="title">購入場所</span>
+                                    <div class="title_name">
+                                          <%= t.shop %>
+                                          </div>
                               <div class="thumbnail">
-                                    <%= image_tag t.image_url, size: "250x200" if t.image? %>
+                                    <% t.bean_images.each do |image| %>
+                                          <%= image_tag image.image_url, size: "250x200" %>
+                                    <% end %>
                               </div>
                               <br>
                               <div class="date">

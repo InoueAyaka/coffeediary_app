@@ -1,0 +1,9 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  bean_id: 1
+  image_id: MyString
+
+two:
+  bean_id: 1
+  image_id: MyString

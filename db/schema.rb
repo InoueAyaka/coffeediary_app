@@ -10,13 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_11_072413) do
+ActiveRecord::Schema.define(version: 2022_01_21_115224) do
+
+  create_table "bean_images", force: :cascade do |t|
+    t.integer "bean_id"
+    t.string "image"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "beans", force: :cascade do |t|
     t.text "name"
     t.text "shop"
     t.text "area"
-    t.string "image"
     t.integer "tasting"
     t.integer "body"
     t.integer "roast"
