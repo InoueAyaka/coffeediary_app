@@ -1,5 +1,5 @@
-<center>  
-<body>
+ 
+
 <div class="wrapper">
    <div class="dekai_midashi">
       投稿詳細<p>
@@ -279,7 +279,7 @@
                   <% @comments.each do |c| %>
                      <div>
                         <span class="title"><%= c.user.name unless c.user.blank? %></span>
-                        <p>
+                        
                         <%= c.content %>
                      </div>
                      <% end %>
@@ -287,7 +287,7 @@
          <%= form_with(model: [@bean, @comment], local: true) do |f| %>
                <%= f.text_area :content, class: "cmt_area" %><p>
             <%= button_tag class:"cmt_btn", type: "submit" do %>
-               </i> コメントする
+            コメントする
             <% end %>
          <% end %>
       <% end %>
@@ -297,4 +297,3 @@
       <%= link_to "投稿一覧に戻る", beans_path %>
    </div>
 </div>
-</body>

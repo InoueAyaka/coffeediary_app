@@ -53,11 +53,7 @@
   margin: 2px 8px
 }
 
-// hr,
-// .stripe {
-//   width: 80%;
-//   margin: 0 auto;
-// }
+
 
 img {
   width: 26px;
@@ -80,7 +76,6 @@ font {
     margin: 0 auto;
     height: 1em;
     font-size: 25px;
-    // background-color: rgba($color: orange, $alpha: 0.3);
   }
   
   .star-rating img {
@@ -91,7 +86,6 @@ font {
     display: inline-block;
     background: url(hyggegray.png) no-repeat;
     background-size: 27px;
-    // margin: 2px 8px
   }
 
   .bean_box {
@@ -103,11 +97,9 @@ font {
   .box_item {
     width: 100%;
     margin-bottom: 30px;
-    // background-color: rgba($color: red, $alpha: 0.8);
   }
 
   .bean_item {
-    // background-color: rgba($color: red, $alpha: 0.3);
     margin-bottom: 20px;
     position: absolute;
     text-align: left;
@@ -115,7 +107,6 @@ font {
   }
   
   .bean_item_front {
-    // background-color: rgba($color: green, $alpha: 0.3);
     z-index: 1;
   }
 
@@ -124,21 +115,7 @@ font {
     font-size: 8px;
   }
 
-  // .memo_area {
-  //   width: 70px;
-  // }
 
-
-
-// @media(max-width:880px) {
-//   .bean_item {
-//     margin-left: 20%;
-//   }
-//   .box_item {
-//     margin-bottom: 80px;
-//   }
-
-// }
 @media(max-width:1300px) {
   .body_midashi .bean_item {
     margin-left: 27% !important;
@@ -148,7 +125,6 @@ font {
   }
   .clean {
     width: 90%;
-    // margin-left: 20%;
     margin-right: 7%;
     display: flex;
     flex-wrap: nowrap;
@@ -185,7 +161,6 @@ font {
   margin-left: 30% !important;
   }
   .clean {
-    // margin: 0 auto;
     flex-wrap: nowrap;
     justify-content: left;
   }
@@ -215,7 +190,6 @@ font {
   }
   .clean {
     width: 90%;
-    // margin-left: 20%;
     margin-right: 7%;
     display: flex;
     flex-wrap: nowrap;
@@ -265,12 +239,8 @@ font {
   .body_midashi .bean_item {
     margin-left: 0% !important;
   }
-  // .clean {
-  //   width: 100% !important;
-  //   margin-right: 0% !important;
-  // }
 }
-// メディアクエリ
+
 
 
 
@@ -329,7 +299,6 @@ font {
 .memo_txt {
   height: 200px;
   width: 300px;
-  // overflow-y:scroll;
 }
 
 .submit_btn {
