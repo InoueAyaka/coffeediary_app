@@ -181,7 +181,7 @@
                   </div>
                </div>
             </span>
-            </div>
+         </div>
                <!--- ボディ部分終わり-------->
                
          <!--- 焙煎度の部分 ------------>
@@ -272,26 +272,25 @@
                      <%= link_to "編集する", edit_bean_path(@bean.id) %>
                      <%= link_to "削除する", bean_path(@bean.id), method: :delete, data: { confirm: "削除しますか？" } %>
                   <% end %>
-                  <div class="comment-wrapper">
+               <div class="comment-wrapper">
                      <div class="dekai_midashi2">
                         コメント一覧
                      </div>
                   <% @comments.each do |c| %>
                      <div>
                         <span class="title"><%= c.user.name unless c.user.blank? %></span>
-                        
                         <%= c.content %>
                      </div>
                      <% end %>
                      <% if user_signed_in? %>
-         <%= form_with(model: [@bean, @comment], local: true) do |f| %>
-               <%= f.text_area :content, class: "cmt_area" %><p>
-            <%= button_tag class:"cmt_btn", type: "submit" do %>
-            コメントする
-            <% end %>
-         <% end %>
-      <% end %>
-   </div>
+                        <%= form_with(model: [@bean, @comment], local: true) do |f| %>
+                              <%= f.text_area :content, class: "cmt_area" %><p>
+                           <%= button_tag class:"cmt_btn", type: "submit" do %>
+                           コメントする
+                           <% end %>
+                        <% end %>
+                     <% end %>
+               </div>
    <br>
    <div class="dekai_midashi2">
       <%= link_to "投稿一覧に戻る", beans_path %>

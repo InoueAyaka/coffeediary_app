@@ -1,7 +1,9 @@
+<center>
 <div class="wrapper">
   <div class="dekai_midashi">
       投稿詳細
   </div>
+  <br>
   <a href="/users/<%= @bean.user.id %>"><%= @bean.user.name %></a>
   <div class="bean">
         <div class="title">
@@ -52,86 +54,255 @@
       </div>
 
       <div class="bean_box">
-        <!--- テイスティングの部分 ------------>
-        <div class="title">
-        テイスティング
-        </div>
-        <div class="box_item">
-          <span class="star-rating">
-              <div class="clean">
-                <% (2..@bean.tasting).each do |n| %>
+          <!--- テイスティングの部分 ------------>
+          <div class="title">
+          テイスティング
+          </div>
+          <div class="box_item">
+            <% if @bean.tasting == nil %>
+            <% else %>
+              <span class="star-rating">
+                  <div class="clean">
+                    <% (2..@bean.tasting).each do |n| %>
+                        <div class="one_bean"> 
+                          <% if n == 2 %>
+                            <p class="chara transparent">酸味</p>
+                          <% end %>
+                          <% if n == 3 %>
+                            <p class="chara_tspt">酸味</p>
+                          <% end %>
+                          <% if n == 4 %>
+                            <p class="chara_tspt">酸味</p>
+                          <% end %>
+                          <% if n == 5 %>
+                            <p class="chara_tspt">酸味</p>
+                          <% end %>
+                          <% if n == 6 %>
+                            <p class="chara_tspt">酸味</p>
+                          <% end %>
+                          <% if n == 7 %>
+                            <p class="chara_tspt">酸味</p>
+                          <% end %>
+                          <% if n == 8 %>
+                            <p class="chara_tspt">酸味</p>
+                          <% end %>
+                          <% if n == 9 %>
+                            <p class="chara">苦味</p>
+                          <% end %>
+                            <%= image_tag 'mink.png' %>
+                        </div> 
+                    <% end %>
+                    </div>
+                  </div>
+                  <div class="bean_item">
+                    <div class="clean">
+                      <% (1..9).each do |n| %>
+                        <div class="one_bean">
+                          <% if n == 1 %>
+                            <p class="chara">酸味</p>
+                          <% end %>
+                          <% if n == 2 %>
+                            <p class="chara_tspt">酸味</p>
+                          <% end %>
+                          <% if n == 3 %>
+                            <p class="chara_tspt">酸味</p>
+                          <% end %>
+                          <% if n == 4 %>
+                            <p class="chara_tspt">酸味</p>
+                          <% end %>
+                          <% if n == 5 %>
+                            <p class="chara_tspt">酸味</p>
+                          <% end %>
+                          <% if n == 6 %>
+                            <p class="chara_tspt">酸味</p>
+                          <% end %>
+                          <% if n == 7 %>
+                            <p class="chara_tspt">酸味</p>
+                          <% end %>
+                          <% if n == 8 %>
+                            <p class="chara_tspt">酸味</p>
+                          <% end %>
+                          <% if n == 9 %>
+                            <p class="chara">苦味</p>
+                          <% end %>
+                          <%= image_tag 'hyggegray.png' %>
+                        </div>   
+                      <% end %>
+                    </div>
+                  </div>
+              </span>
+            <% end %>
+          </div>
+          <!--- テイスティング部分終わり------->
+          <!--- ボディの部分 ------------>
+          <div class="title">
+              ボディ
+          </div>
+          <div class="box_item">
+            <% if @bean.tasting == nil %>
+            <% else %>
+              <span class="star-rating">
+                <div class="body_midashi">
+                  <div class="bean_item bean_item_front">
+                    <% (1..@bean.body).each do |n| %>
+                      <div class="one_bean"> 
+                        <% if n == 1 %>
+                          <p class="chara transparent">ﾗｲﾄ</p>
+                        <% end %>
+                        <% if n == 3 %>
+                          <p class="chara">ﾐﾃﾞｨｱﾑ</p>
+                        <% end %>
+                        <% if n == 5 %>
+                          <p class="chara">ﾌﾙ</p>
+                        <% end %>
+                        <%= image_tag 'mink.png' %>
+                      </div>
+                    <% end %>
+                  </div>
+                  <div class="bean_item">
+                    <% (1..5).each do |n| %>
+                      <div class="one_bean">
+                        <% if n == 1 %>
+                          <p class="chara">ﾗｲﾄ</p>
+                        <% end %>
+                        <% if n == 3 %>
+                          <p class="chara">ﾐﾃﾞｨｱﾑ</p>
+                        <% end %>
+                        <% if n == 5 %>
+                          <p class="chara">ﾌﾙ</p>
+                        <% end %>
+                        <%= image_tag 'hyggegray.png' %>
+                      </div>
+                    <% end %>
+                  </div>
+                </div>
+              </span>
+            <% end %>
+          </div>
+          <!--- ボディ部分終わり-------->
+          <!--- 焙煎度の部分 ------------>
+          <div class="title">
+            焙煎度
+          </div>
+          <div class="box_item">
+            <% if @bean.tasting == nil %>
+            <% else %>
+              <span class="star-rating">
+                <div class="bean_item bean_item_front">
+                  <% (1..@bean.roast).each do |n| %>
                     <div class="one_bean"> 
+                      <% if n == 1 %>
+                        <p class="chara transparent">ﾌﾚﾝﾁ</p>
+                      <% end %>
                       <% if n == 2 %>
-                        <p class="chara transparent">酸味</p>
+                        <p class="chara">ｼﾅﾓﾝ</p>
                       <% end %>
                       <% if n == 3 %>
-                        <p class="chara_tspt">酸味</p>
+                        <p class="chara">ﾐﾃﾞｨｱﾑ</p>
                       <% end %>
                       <% if n == 4 %>
-                        <p class="chara_tspt">酸味</p>
+                        <p class="chara">ﾊｲ</p>
                       <% end %>
                       <% if n == 5 %>
-                        <p class="chara_tspt">酸味</p>
+                        <p class="chara">ｼﾃｨ</p>
                       <% end %>
                       <% if n == 6 %>
-                        <p class="chara_tspt">酸味</p>
+                        <p class="chara">ﾌﾙｼﾃｨ</p>
                       <% end %>
                       <% if n == 7 %>
-                        <p class="chara_tspt">酸味</p>
+                        <p class="chara">ﾌﾚﾝﾁ</p>
                       <% end %>
                       <% if n == 8 %>
-                        <p class="chara_tspt">酸味</p>
+                        <p class="chara">ｲﾀﾘｱﾝ</p>
                       <% end %>
-                      <% if n == 9 %>
-                        <p class="chara">苦味</p>
-                      <% end %>
-                        <%= image_tag 'mink.png' %>
+                      <%= image_tag 'mink.png' %>
                     </div> 
-                <% end %>
-                </div>
-              </div>
-              <div class="bean_item">
-                <div class="clean">
-                  <% (1..9).each do |n| %>
+                  <% end %>
+                  </div>
+                <div class="bean_item">
+                  <% (1..8).each do |n| %>
                     <div class="one_bean">
                       <% if n == 1 %>
-                        <p class="chara">酸味</p>
+                        <p class="chara">ﾌﾚﾝﾁ</p>
                       <% end %>
                       <% if n == 2 %>
-                        <p class="chara_tspt">酸味</p>
+                        <p class="chara">ｼﾅﾓﾝ</p>
                       <% end %>
                       <% if n == 3 %>
-                        <p class="chara_tspt">酸味</p>
+                        <p class="chara">ﾐﾃﾞｨｱﾑ</p>
                       <% end %>
                       <% if n == 4 %>
-                        <p class="chara_tspt">酸味</p>
+                        <p class="chara">ﾊｲ</p>
                       <% end %>
                       <% if n == 5 %>
-                        <p class="chara_tspt">酸味</p>
+                        <p class="chara">ｼﾃｨ</p>
                       <% end %>
                       <% if n == 6 %>
-                        <p class="chara_tspt">酸味</p>
+                        <p class="chara">ﾌﾙｼﾃｨ</p>
                       <% end %>
                       <% if n == 7 %>
-                        <p class="chara_tspt">酸味</p>
+                        <p class="chara">ﾌﾚﾝﾁ</p>
                       <% end %>
                       <% if n == 8 %>
-                        <p class="chara_tspt">酸味</p>
-                      <% end %>
-                      <% if n == 9 %>
-                        <p class="chara">苦味</p>
+                        <p class="chara">ｲﾀﾘｱﾝ</p>
                       <% end %>
                       <%= image_tag 'hyggegray.png' %>
                     </div>   
                   <% end %>
                 </div>
-              </div>
-          </span>
-        </div>
-        <!--- テイスティング部分終わり------->
+              </span>
+            <% end %>
+          </div>
+          <!--- 焙煎度部分終わり-------->
+    <span id="likes_buttons_<%= @bean.id %>">
+      <%= render "likes/like", bean: @bean %>
+    </span>
+    <div class="date">
+        投稿日時: 
+      <%= @bean.created_at.to_s(:datetime_jp) %><p>
+        更新日時: 
+      <%= @bean.updated_at.to_s(:datetime_jp) %>
+    </div>
+    <% if user_signed_in? && current_user.id == @bean.user_id %>  
+      <%= link_to "編集する", edit_bean_path(@bean.id) %>
+      <%= link_to "削除する", bean_path(@bean.id), method: :delete, data: { confirm: "削除しますか？" } %>
+    <% end %>
+    <div class="comment-wrapper">
+      <div class="dekai_midashi2">
+        コメント一覧
       </div>
+      <% @comments.each do |c| %>
+        <div>
+          <span class="title"><%= c.user.name unless c.user.blank? %></span>
+          <%= c.content %>
+        </div>
+        <% end %>
+        <% if user_signed_in? %>
+          <%= form_with(model: [@bean, @comment], local: true) do |f| %>  
+              <%= f.text_area :content, class: "cmt_area" %><p>
+              <%= button_tag class:"cmt_btn", type: "submit" do %>
+                コメントする
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+              
+  <div class="dekai_midashi2">
+    <%= link_to "投稿一覧に戻る", beans_path %>
+  </div>
+
+
+
+
+
+
+
+
+
+
 
 
 
   </div>
 </div>
+</center>
